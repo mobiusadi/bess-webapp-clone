@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "name": "Surprise, Arizona BESS Fire",
+    "date": "2019-04-19",
+    "latitude": 33.6292,
+    "longitude": -112.3380,
+    "description": "An incident involving a 2 MW battery system."
+  },
+  {
+    "id": 2,
+    "name": "Liverpool, UK Energy Storage Fire",
+    "date": "2020-09-15",
+    "latitude": 53.4084,
+    "longitude": -2.9916,
+    "description": "Fire at a 20 MW battery storage facility."
+  },
+  {
+    "id": 3,
+    "name": "Moss Landing, California Incident",
+    "date": "2021-09-04",
+    "latitude": 36.8041,
+    "longitude": -121.7888,
+    "description": "Overheating incident at the world's largest BESS facility."
+  }
+]
