@@ -1,14 +1,15 @@
 import React, { useEffect, useRef } from 'react';
-import IncidentItem from './IncidentItem'; // Import our new component
+import IncidentItem from './IncidentItem';
 
-function IncidentList({ incidents, selectedIncident, onIncidentSelect }) {
+// Accept the new fieldVisibility prop
+function IncidentList({ incidents, selectedIncident, onIncidentSelect, fieldVisibility }) {
   const itemRefs = useRef({});
 
   useEffect(() => {
     if (selectedIncident && itemRefs.current[selectedIncident.id]) {
       itemRefs.current[selectedIncident.id].scrollIntoView({
         behavior: 'smooth',
-        block: 'nearest', // 'nearest' is often a smoother scroll experience
+        block: 'nearest',
       });
     }
   }, [selectedIncident]);
@@ -21,6 +22,8 @@ function IncidentList({ incidents, selectedIncident, onIncidentSelect }) {
             incident={incident}
             isSelected={selectedIncident?.id === incident.id}
             onClick={() => onIncidentSelect(incident)}
+            // Pass the prop along to the item
+            fieldVisibility={fieldVisibility}
           />
         </div>
       ))}

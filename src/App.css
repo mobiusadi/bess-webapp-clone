@@ -131,3 +131,35 @@
 .incident-details strong {
   color: #24292e;
 }
+
+/* Styles for Filter Controls */
+.filter-controls {
+  padding: 1rem;
+  border-bottom: 2px solid #ddd;
+  background-color: #f6f8fa;
+}
+
+.filter-controls h4 {
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+  text-align: left;
+}
+
+.checkbox-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 0.5rem;
+}
+
+.checkbox-item {
+  display: flex;
+  align-items: center;
+}
+
+.checkbox-item input {
+  margin-right: 0.5rem;
+}
+
+.checkbox-item label {
+  font-size: 0.9rem;
+}
