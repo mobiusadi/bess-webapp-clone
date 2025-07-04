@@ -5,12 +5,17 @@ import FilterControls from './components/FilterControls';
 import incidentData from './data/incidents.json';
 import './App.css';
 
+const sortedIncidents = incidentData.sort((a, b) => {
+  const dateA = a.event_date ? new Date(a.event_date) : 0;
+  const dateB = b.event_date ? new Date(b.event_date) : 0;
+  return dateB - dateA;
+});
+
 function App() {
-  const [incidents] = useState(incidentData);
+  const [incidents] = useState(sortedIncidents);
   const [selectedIncident, setSelectedIncident] = useState(null);
   const [mapRef, setMapRef] = useState(null);
   
-  // NEW: State to control the visibility of the filter dropdown
   const [isFilterVisible, setIsFilterVisible] = useState(false);
 
   const [fieldVisibility, setFieldVisibility] = useState({
@@ -38,7 +43,6 @@ function App() {
         lat: selectedIncident.latitude,
         lng: selectedIncident.longitude
       });
-      mapRef.setZoom(14);
     }
   }, [selectedIncident, mapRef]);
 
@@ -47,11 +51,9 @@ function App() {
       <header className="App-header">
         <h1>BESS Incident Map</h1>
         <div className="header-controls">
-          {/* This button will toggle the filter dropdown */}
           <button onClick={() => setIsFilterVisible(!isFilterVisible)} className="filter-toggle-button">
             Filters
           </button>
-          {/* The FilterControls are now rendered conditionally here */}
           {isFilterVisible && (
             <FilterControls 
               visibility={fieldVisibility}

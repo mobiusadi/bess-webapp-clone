@@ -4,7 +4,8 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  /* CHANGED: The background color is now a 'firebrick' red */
+  background-color: #B22222; 
   padding: 10px 20px;
   color: white;
   position: sticky;
@@ -151,16 +152,16 @@
 }
 
 .filter-toggle-button {
-  background-color: #404756;
+  background-color: #4a0e0e; /* Darker red for button */
   color: white;
-  border: 1px solid #666;
+  border: 1px solid #ffc2c2;
   padding: 8px 16px;
   border-radius: 6px;
   cursor: pointer;
 }
 
 .filter-toggle-button:hover {
-  background-color: #535b6c;
+  background-color: #6d1414;
 }
 
 .filter-controls {
