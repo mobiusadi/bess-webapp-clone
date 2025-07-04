@@ -38,9 +38,7 @@ function App() {
   };
 
   useEffect(() => {
-    // --- THIS IS THE FIX ---
-    // Only try to pan the map if the selected incident and its coordinates are valid.
-    if (mapRef && selectedIncident && typeof selectedIncident.latitude === 'number' && typeof selectedIncident.longitude === 'number') {
+    if (mapRef && selectedIncident && typeof selectedIncident.latitude === 'number') {
       mapRef.panTo({
         lat: selectedIncident.latitude,
         lng: selectedIncident.longitude
@@ -51,19 +49,10 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
+        {/* The header now only contains the title */}
         <h1>BESS Incident Map</h1>
-        <div className="header-controls">
-          <button onClick={() => setIsFilterVisible(!isFilterVisible)} className="filter-toggle-button">
-            Filters
-          </button>
-          {isFilterVisible && (
-            <FilterControls 
-              visibility={fieldVisibility}
-              onVisibilityChange={handleVisibilityChange}
-            />
-          )}
-        </div>
       </header>
+
       <main className="App-main">
         <div className="list-container">
           <IncidentList
@@ -80,6 +69,19 @@ function App() {
             onMarkerClick={setSelectedIncident}
             onMapLoad={setMapRef}
           />
+          {/* NEW: The filter controls now live inside the map container */}
+          {/* This allows us to position them as a "lozenge" over the map */}
+          <div className="filter-lozenge-container">
+            <button onClick={() => setIsFilterVisible(!isFilterVisible)} className="filter-lozenge-button">
+              Filters
+            </button>
+            {isFilterVisible && (
+              <FilterControls 
+                visibility={fieldVisibility}
+                onVisibilityChange={handleVisibilityChange}
+              />
+            )}
+          </div>
         </div>
       </main>
     </div>
