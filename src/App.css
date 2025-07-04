@@ -34,85 +34,100 @@
 .incident-list {
   padding: 10px;
 }
+/* === Polished Incident Card Styles === */
 
 .incident-item {
-  padding: 15px;
-  border-bottom: 1px solid #eee;
-  text-align: left;
+  background-color: #fff;
+  border: 1px solid #e1e4e8;
+  border-radius: 8px;
+  margin-bottom: 1rem;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  display: flex;
+  flex-direction: column;
 }
 
 .incident-item:hover {
-  background-color: #f0f0f0;
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
 }
 
 .incident-item.selected {
-  background-color: #d1eaff; /* Highlight color for selected item */
-  border-left: 5px solid #007bff;
-}
-
-.incident-item h3 {
-  margin: 0 0 5px 0;
-  font-size: 1rem;
-}
-
-.incident-item p {
-  margin: 0;
-  font-size: 0.8rem;
-  color: #555;
-}
-
-/* Responsive design for mobile devices */
-@media (max-width: 768px) {
-  .App-main {
-    flex-direction: column; /* Stack them on top of each other on mobile */
-  }
-
-  .list-container {
-    flex: 1;
-    max-height: 40vh; /* Give the list a max height */
-    border-right: none;
-    border-bottom: 2px solid #ddd;
-  }
-
-  .map-container {
-    flex: 2; /* Map takes up more space */
-    min-height: 60vh;
-  }
-}
-/* New Styles for the Incident Item Card */
-.incident-item {
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  margin-bottom: 15px;
-  overflow: hidden; /* This keeps the rounded corners on the image */
-  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-}
-
-.incident-item.selected {
-  border-left: 5px solid #007bff;
-  box-shadow: 0 4px 8px rgba(0,123,255,0.2);
-}
-
-.incident-content {
-  padding: 15px;
-}
-
-.incident-item h4 {
-  margin: 5px 0;
-  font-size: 0.9rem;
-  font-weight: normal;
-  color: #666;
-}
-
-.incident-item p {
-  font-size: 0.9rem;
-  line-height: 1.5;
+  border-color: #007bff;
+  box-shadow: 0 0 0 3px rgba(0,123,255,0.25);
 }
 
 .incident-image {
   width: 100%;
   height: 180px;
-  object-fit: cover; /* This makes sure the image covers the area without stretching */
+  object-fit: cover;
+  border-top-left-radius: 7px;
+  border-top-right-radius: 7px;
+}
+
+.incident-content {
+  padding: 1rem;
+  text-align: left;
+}
+
+.incident-content h3 {
+  font-size: 1.1rem;
+  margin: 0.5rem 0;
+  color: #24292e;
+}
+
+.incident-description {
+  font-size: 0.9rem;
+  color: #586069;
+  line-height: 1.5;
+  margin-bottom: 1rem;
+}
+
+.incident-root-cause {
+  font-size: 0.85rem;
+  color: #444;
+  background-color: #f6f8fa;
+  padding: 0.5rem;
+  border-radius: 6px;
+  border-left: 3px solid #d73a49; /* A little accent color */
+}
+
+.incident-tags {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.tag {
+  display: inline-block;
+  padding: 0.25rem 0.6rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border-radius: 1rem;
+  color: #fff;
+}
+
+.tag-country {
+  background-color: #007bff;
+}
+
+.tag-year {
+  background-color: #28a745;
+}
+
+/* New styles for the technical details section */
+.incident-details {
+  font-size: 0.85rem;
+  border-top: 1px solid #e1e4e8;
+  margin-top: 1rem;
+  padding-top: 1rem;
+}
+
+.incident-details p {
+  margin: 0.3rem 0;
+  color: #444;
+}
+
+.incident-details strong {
+  color: #24292e;
 }
