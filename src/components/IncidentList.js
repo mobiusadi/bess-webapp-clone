@@ -21,8 +21,10 @@ function IncidentList({ incidents, selectedIncident, onIncidentSelect }) {
           className={`incident-item ${selectedIncident?.id === incident.id ? 'selected' : ''}`}
           onClick={() => onIncidentSelect(incident)}
         >
-          <h3>{incident.name}</h3>
-          <p>{incident.date}</p>
+          {/* CHANGE: Use location_name for the title */}
+          <h3>{incident.location_name}</h3> 
+          {/* CHANGE: Use event_date for the paragraph */}
+          <p>{incident.event_date}</p> 
         </div>
       ))}
     </div>

@@ -28,7 +28,8 @@ function MapContainer({ incidents, selectedIncident, onMarkerClick, onMapLoad })
         <MarkerF
           key={incident.id}
           position={{ lat: incident.latitude, lng: incident.longitude }}
-          title={incident.name}
+          // CHANGE: Use location_name for the marker title
+          title={incident.location_name}
           onClick={() => onMarkerClick(incident)}
           // Change marker icon if selected
           icon={{
