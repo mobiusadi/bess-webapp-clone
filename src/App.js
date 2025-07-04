@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import MapContainer from './components/MapContainer';
 import IncidentList from './components/IncidentList';
-import FilterControls from './components/FilterControls'; // Import the new component
+import FilterControls from './components/FilterControls';
 import incidentData from './data/incidents.json';
 import './App.css';
 
@@ -9,8 +9,10 @@ function App() {
   const [incidents] = useState(incidentData);
   const [selectedIncident, setSelectedIncident] = useState(null);
   const [mapRef, setMapRef] = useState(null);
+  
+  // NEW: State to control the visibility of the filter dropdown
+  const [isFilterVisible, setIsFilterVisible] = useState(false);
 
-  // --- NEW: State for field visibility ---
   const [fieldVisibility, setFieldVisibility] = useState({
     country: true,
     year: true,
@@ -23,7 +25,6 @@ function App() {
     root_cause: false,
   });
 
-  // --- NEW: Function to handle checkbox toggles ---
   const handleVisibilityChange = (field) => {
     setFieldVisibility(prevVisibility => ({
       ...prevVisibility,
@@ -45,19 +46,26 @@ function App() {
     <div className="App">
       <header className="App-header">
         <h1>BESS Incident Map</h1>
+        <div className="header-controls">
+          {/* This button will toggle the filter dropdown */}
+          <button onClick={() => setIsFilterVisible(!isFilterVisible)} className="filter-toggle-button">
+            Filters
+          </button>
+          {/* The FilterControls are now rendered conditionally here */}
+          {isFilterVisible && (
+            <FilterControls 
+              visibility={fieldVisibility}
+              onVisibilityChange={handleVisibilityChange}
+            />
+          )}
+        </div>
       </header>
       <main className="App-main">
         <div className="list-container">
-          {/* We render the new controls component here */}
-          <FilterControls 
-            visibility={fieldVisibility}
-            onVisibilityChange={handleVisibilityChange}
-          />
           <IncidentList
             incidents={incidents}
             selectedIncident={selectedIncident}
             onIncidentSelect={setSelectedIncident}
-            // Pass the visibility state down to the list
             fieldVisibility={fieldVisibility}
           />
         </div>

@@ -1,15 +1,12 @@
-import React from 'react';
-import { GoogleMap, useJsApiLoader, MarkerF } from '@react-google-maps/api';
+import React, { useState } from 'react';
+// We are no longer importing the custom icon
+import { GoogleMap, useJsApiLoader, MarkerF, InfoWindow } from '@react-google-maps/api';
 
 const containerStyle = {
   width: '100%',
   height: '100%'
 };
-
-const center = {
-  lat: 34.052235,
-  lng: -118.243683
-};
+const center = { lat: 30, lng: 0 };
 
 function MapContainer({ incidents, selectedIncident, onMarkerClick, onMapLoad }) {
   const { isLoaded } = useJsApiLoader({
@@ -17,30 +14,41 @@ function MapContainer({ incidents, selectedIncident, onMarkerClick, onMapLoad })
     googleMapsApiKey: process.env.REACT_APP_Maps_API_KEY
   });
 
+  const [hoveredIncident, setHoveredIncident] = useState(null);
+
   return isLoaded ? (
-    <GoogleMap
-      mapContainerStyle={containerStyle}
-      center={center}
-      zoom={4}
-      onLoad={onMapLoad}
-    >
-      {incidents.map((incident) => (
-        <MarkerF
-          key={incident.id}
-          position={{ lat: incident.latitude, lng: incident.longitude }}
-          // CHANGE: Use location_name for the marker title
-          title={incident.location_name}
-          onClick={() => onMarkerClick(incident)}
-          // Change marker icon if selected
-          icon={{
-            path: window.google.maps.SymbolPath.CIRCLE,
-            scale: selectedIncident?.id === incident.id ? 10 : 7,
-            fillColor: selectedIncident?.id === incident.id ? '#ff0000' : '#007bff',
-            fillOpacity: 1.0,
-            strokeWeight: 0,
-          }}
-        />
-      ))}
+    <GoogleMap mapContainerStyle={containerStyle} center={center} zoom={2} onLoad={onMapLoad}>
+      {incidents.map((incident) => {
+        const isSelected = selectedIncident?.id === incident.id;
+        return (
+          <MarkerF
+            key={incident.id}
+            position={{ lat: incident.latitude, lng: incident.longitude }}
+            title={incident.location}
+            onClick={() => onMarkerClick(incident)}
+            onMouseOver={() => setHoveredIncident(incident)}
+            onMouseOut={() => setHoveredIncident(null)}
+            
+            // Reverted back to the colored circle markers
+            icon={{
+              path: window.google.maps.SymbolPath.CIRCLE,
+              scale: isSelected ? 10 : 7,
+              fillColor: isSelected ? '#ff0000' : '#007bff',
+              fillOpacity: 1.0,
+              strokeWeight: 0,
+            }}
+          >
+            {hoveredIncident?.id === incident.id && (
+              <InfoWindow onCloseClick={() => setHoveredIncident(null)}>
+                <div className="map-infowindow">
+                  <h4>{incident.location}</h4>
+                  <p>{incident.year}</p>
+                </div>
+              </InfoWindow>
+            )}
+          </MarkerF>
+        )
+      })}
     </GoogleMap>
   ) : <></>;
 }

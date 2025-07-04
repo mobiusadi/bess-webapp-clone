@@ -1,22 +1,25 @@
-/* General App Styles */
+/* === General App Styles === */
 .App {
   text-align: center;
 }
 
 .App-header {
   background-color: #282c34;
-  padding: 10px;
+  padding: 10px 20px;
   color: white;
   position: sticky;
   top: 0;
   z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-/* Main layout using Flexbox for responsiveness */
+/* === Main App Layout === */
 .App-main {
   display: flex;
   flex-direction: row; /* Side-by-side on desktop */
-  height: calc(100vh - 75px); /* Full height minus header */
+  height: calc(100vh - 75px); /* Adjust height based on your header */
 }
 
 .list-container {
@@ -30,11 +33,10 @@
   flex: 3; /* Takes up 3 parts of the space, so it's wider */
 }
 
-/* Incident List Styles */
-.incident-list {
-  padding: 10px;
-}
 /* === Polished Incident Card Styles === */
+.incident-list {
+  padding: 1rem;
+}
 
 .incident-item {
   background-color: #fff;
@@ -92,8 +94,26 @@
   border-left: 3px solid #d73a49; /* A little accent color */
 }
 
+.incident-details {
+  font-size: 0.85rem;
+  border-top: 1px solid #e1e4e8;
+  margin-top: 1rem;
+  padding-top: 1rem;
+}
+
+.incident-details p {
+  margin: 0.3rem 0;
+  color: #444;
+}
+
+.incident-details strong {
+  color: #24292e;
+}
+
+/* === Tag ("Tablet") Styles === */
 .incident-tags {
   display: flex;
+  flex-wrap: wrap;
   gap: 0.5rem;
   margin-bottom: 0.5rem;
 }
@@ -115,34 +135,52 @@
   background-color: #28a745;
 }
 
-/* New styles for the technical details section */
-.incident-details {
-  font-size: 0.85rem;
-  border-top: 1px solid #e1e4e8;
-  margin-top: 1rem;
-  padding-top: 1rem;
+.tag-power {
+  background-color: #ffc107;
+  color: #212529;
 }
 
-.incident-details p {
-  margin: 0.3rem 0;
-  color: #444;
+.tag-energy {
+  background-color: #fd7e14;
 }
 
-.incident-details strong {
-  color: #24292e;
+
+/* === Header and Filter Controls === */
+.header-controls {
+  position: relative;
 }
 
-/* Styles for Filter Controls */
+.filter-toggle-button {
+  background-color: #404756;
+  color: white;
+  border: 1px solid #666;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.filter-toggle-button:hover {
+  background-color: #535b6c;
+}
+
 .filter-controls {
+  position: absolute;
+  top: 120%;
+  right: 0;
+  width: 350px;
+  z-index: 100;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
   padding: 1rem;
-  border-bottom: 2px solid #ddd;
   background-color: #f6f8fa;
+  text-align: left;
 }
 
 .filter-controls h4 {
   margin-top: 0;
   margin-bottom: 0.75rem;
-  text-align: left;
+  color: #24292e;
 }
 
 .checkbox-grid {
@@ -154,6 +192,7 @@
 .checkbox-item {
   display: flex;
   align-items: center;
+  color: #24292e;
 }
 
 .checkbox-item input {
@@ -162,4 +201,41 @@
 
 .checkbox-item label {
   font-size: 0.9rem;
+}
+
+/* === Map InfoWindow === */
+.map-infowindow {
+  padding: 0;
+}
+.map-infowindow h4 {
+  margin: 0 0 5px 0;
+  font-size: 1rem;
+}
+.map-infowindow p {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+
+/* === Responsive design for mobile devices === */
+@media (max-width: 768px) {
+  .App-main {
+    flex-direction: column; /* Stack them on top of each other on mobile */
+  }
+
+  .list-container {
+    flex: 1;
+    max-height: 50vh; /* Adjust height for mobile */
+    border-right: none;
+    border-bottom: 2px solid #ddd;
+  }
+
+  .map-container {
+    flex: 1; /* Make map and list more equal on mobile */
+    min-height: 50vh;
+  }
+
+  .filter-controls {
+    width: 300px; /* Adjust filter dropdown width for mobile */
+  }
 }
