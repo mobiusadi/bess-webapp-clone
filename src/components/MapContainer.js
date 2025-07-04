@@ -1,11 +1,19 @@
 import React, { useState } from 'react';
 import { GoogleMap, useJsApiLoader, MarkerF, InfoWindow } from '@react-google-maps/api';
+import mapStyles from '../mapStyles'; // Import our new styles
 
 const containerStyle = {
   width: '100%',
   height: '100%'
 };
 const center = { lat: 30, lng: 0 };
+
+// NEW: Create an options object to hold our custom styles
+const mapOptions = {
+  styles: mapStyles,
+  disableDefaultUI: true, // Optionally hide the default UI like street view
+  zoomControl: true, // But keep the zoom control
+};
 
 const calculateMarkerScale = (mw) => {
   if (!mw || typeof mw !== 'number' || mw <= 0) {
@@ -23,12 +31,18 @@ function MapContainer({ incidents, selectedIncident, onMarkerClick, onMapLoad })
   const [hoveredIncident, setHoveredIncident] = useState(null);
 
   return isLoaded ? (
-    <GoogleMap mapContainerStyle={containerStyle} center={center} zoom={2} onLoad={onMapLoad}>
+    // Pass the new 'mapOptions' object to the 'options' prop of the map
+    <GoogleMap 
+      mapContainerStyle={containerStyle} 
+      center={center} 
+      zoom={2} 
+      onLoad={onMapLoad}
+      options={mapOptions}
+    >
       {incidents.map((incident) => {
         const isSelected = selectedIncident?.id === incident.id;
         const scale = calculateMarkerScale(incident.capacity_mw);
 
-        // This check prevents rendering if data is somehow still bad
         if (typeof incident.latitude !== 'number' || typeof incident.longitude !== 'number') {
           return null;
         }
