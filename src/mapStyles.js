@@ -1,161 +1,69 @@
-// This style is from Snazzy Maps: https://snazzymaps.com/style/151/silver
 const mapStyles = [
+  // --- Global Styles ---
+  // Style all geometric features with a light base color and grey stroke
   {
     "elementType": "geometry",
-    "stylers": [
-      {
-        "color": "#f5f5f5"
-      }
-    ]
+    "stylers": [ { "color": "#f5f5f5" } ]
   },
+  // Turn off all the colorful business/POI icons
   {
     "elementType": "labels.icon",
-    "stylers": [
-      {
-        "visibility": "off"
-      }
-    ]
+    "stylers": [ { "visibility": "off" } ]
   },
+  // Style all text with a dark grey
   {
     "elementType": "labels.text.fill",
-    "stylers": [
-      {
-        "color": "#616161"
-      }
-    ]
+    "stylers": [ { "color": "#616161" } ]
   },
+  // Give all text a light "outline" to make it pop
   {
     "elementType": "labels.text.stroke",
-    "stylers": [
-      {
-        "color": "#f5f5f5"
-      }
-    ]
+    "stylers": [ { "color": "#f5f5f5" } ]
   },
+  
+  // --- Specific Feature Styles ---
+  // Style water features with a darker grey
   {
-    "featureType": "administrative.land_parcel",
-    "elementType": "labels.text.fill",
-    "stylers": [
-      {
-        "color": "#bdbdbd"
-      }
-    ]
-  },
-  {
-    "featureType": "poi",
+    "featureType": "water",
     "elementType": "geometry",
-    "stylers": [
-      {
-        "color": "#eeeeee"
-      }
-    ]
+    "stylers": [ { "color": "#c9c9c9" } ]
   },
-  {
-    "featureType": "poi",
-    "elementType": "labels.text.fill",
-    "stylers": [
-      {
-        "color": "#757575"
-      }
-    ]
-  },
+  // Style parks and green areas with a muted grey-green
   {
     "featureType": "poi.park",
     "elementType": "geometry",
-    "stylers": [
-      {
-        "color": "#e5e5e5"
-      }
-    ]
+    "stylers": [ { "color": "#e5e5e5" } ]
   },
-  {
-    "featureType": "poi.park",
-    "elementType": "labels.text.fill",
-    "stylers": [
-      {
-        "color": "#9e9e9e"
-      }
-    ]
-  },
+  // Style roads with white/light grey fills
   {
     "featureType": "road",
     "elementType": "geometry",
-    "stylers": [
-      {
-        "color": "#ffffff"
-      }
-    ]
-  },
-  {
-    "featureType": "road.arterial",
-    "elementType": "labels.text.fill",
-    "stylers": [
-      {
-        "color": "#757575"
-      }
-    ]
+    "stylers": [ { "color": "#ffffff" } ]
   },
   {
     "featureType": "road.highway",
     "elementType": "geometry",
+    "stylers": [ { "color": "#dadada" } ]
+  },
+
+  // --- OUR CUSTOM BORDER OVERRIDES ---
+  // Because we built the theme, we know these will now take precedence.
+  {
+    "featureType": "administrative.country",
+    "elementType": "geometry.stroke",
     "stylers": [
-      {
-        "color": "#dadada"
-      }
+      { "visibility": "on" },
+      { "color": "#a0a0a0" }, // A visible dark grey
+      { "weight": 1.5 }
     ]
   },
   {
-    "featureType": "road.highway",
-    "elementType": "labels.text.fill",
+    "featureType": "administrative.province",
+    "elementType": "geometry.stroke",
     "stylers": [
-      {
-        "color": "#616161"
-      }
-    ]
-  },
-  {
-    "featureType": "road.local",
-    "elementType": "labels.text.fill",
-    "stylers": [
-      {
-        "color": "#9e9e9e"
-      }
-    ]
-  },
-  {
-    "featureType": "transit.line",
-    "elementType": "geometry",
-    "stylers": [
-      {
-        "color": "#e5e5e5"
-      }
-    ]
-  },
-  {
-    "featureType": "transit.station",
-    "elementType": "geometry",
-    "stylers": [
-      {
-        "color": "#eeeeee"
-      }
-    ]
-  },
-  {
-    "featureType": "water",
-    "elementType": "geometry",
-    "stylers": [
-      {
-        "color": "#c9c9c9"
-      }
-    ]
-  },
-  {
-    "featureType": "water",
-    "elementType": "labels.text.fill",
-    "stylers": [
-      {
-        "color": "#9e9e9e"
-      }
+      { "visibility": "on" },
+      { "color": "#b0b0b0" }, // A slightly lighter grey for states
+      { "weight": 0.5 }
     ]
   }
 ];
