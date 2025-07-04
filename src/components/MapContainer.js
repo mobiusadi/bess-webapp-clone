@@ -28,6 +28,11 @@ function MapContainer({ incidents, selectedIncident, onMarkerClick, onMapLoad })
         const isSelected = selectedIncident?.id === incident.id;
         const scale = calculateMarkerScale(incident.capacity_mw);
 
+        // This check prevents rendering if data is somehow still bad
+        if (typeof incident.latitude !== 'number' || typeof incident.longitude !== 'number') {
+          return null;
+        }
+
         return (
           <MarkerF
             key={incident.id}
@@ -45,9 +50,6 @@ function MapContainer({ incidents, selectedIncident, onMarkerClick, onMapLoad })
               strokeWeight: 1,
               strokeColor: '#ffffff'
             }}
-
-            // --- THIS IS THE FIX ---
-            // The zIndex prop is now correctly formatted as zIndex={value}
             zIndex={isSelected ? 100 : 1}
           >
             {hoveredIncident?.id === incident.id && (

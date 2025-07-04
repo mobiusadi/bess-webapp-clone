@@ -1,15 +1,25 @@
 import React from 'react';
+import ResourceLinkParser from './ResourceLinkParser'; // This line must be correct
 
-// Notice we still accept fieldVisibility as a prop
+const formatKey = (key) => {
+  return key.replace(/_/g, ' ').replace(/\b\w/g, char => char.toUpperCase());
+};
+
+const explicitlyHandledKeys = new Set([
+  'id', 'latitude', 'longitude', 'image_url', 'location', 'description', 
+  'country', 'year', 'event_date', 'capacity_mw', 'capacity_mwh', 'fatalities', 'injuries',
+  'root_cause', 'additional_resources'
+]);
+
 function IncidentItem({ incident, isSelected, onClick, fieldVisibility }) {
+  const year = incident.event_date ? new Date(incident.event_date).getFullYear() : null;
+
   return (
-    // We add a new 'expanded' class when the card is selected
     <div
       className={`incident-item ${isSelected ? 'selected expanded' : ''}`}
       onClick={onClick}
     >
-      {/* The OR '||' condition is the key. Show if toggled ON or if card is selected. */}
-      {(fieldVisibility.image || isSelected) && incident.image_url && (
+      {isSelected && incident.image_url && (
         <img 
           src={incident.image_url} 
           alt={`Incident at ${incident.location}`} 
@@ -20,7 +30,7 @@ function IncidentItem({ incident, isSelected, onClick, fieldVisibility }) {
       <div className="incident-content">
         <div className="incident-tags">
           {(fieldVisibility.country || isSelected) && incident.country && <span className="tag tag-country">{incident.country}</span>}
-          {(fieldVisibility.year || isSelected) && incident.year && <span className="tag tag-year">{incident.year}</span>}
+          {(fieldVisibility.year || isSelected) && year && <span className="tag tag-year">{year}</span>}
           {(fieldVisibility.capacity_mw || isSelected) && incident.capacity_mw && <span className="tag tag-power">{incident.capacity_mw} MW</span>}
           {(fieldVisibility.capacity_mwh || isSelected) && incident.capacity_mwh && <span className="tag tag-energy">{incident.capacity_mwh} MWh</span>}
         </div>
@@ -29,22 +39,44 @@ function IncidentItem({ incident, isSelected, onClick, fieldVisibility }) {
         
         {(fieldVisibility.description || isSelected) && <p className="incident-description">{incident.description}</p>}
 
-        <div className="incident-details">
-          {(fieldVisibility.battery_modules || isSelected) && incident.battery_modules && (
-            <p><strong>Battery:</strong> {incident.battery_modules}</p>
-          )}
-          {(fieldVisibility.enclosure_type || isSelected) && incident.enclosure_type && (
-            <p><strong>Enclosure:</strong> {incident.enclosure_type}</p>
-          )}
-          {(fieldVisibility.failed_element || isSelected) && incident.failed_element && (
-            <p><strong>Failed Element:</strong> {incident.failed_element}</p>
-          )}
-        </div>
-        
-        {(fieldVisibility.root_cause || isSelected) && incident.root_cause && incident.root_cause.toLowerCase() !== 'unknown cause' && (
-            <p className="incident-root-cause">
-                <strong>Reported Cause:</strong> {incident.root_cause}
-            </p>
+        {isSelected && (
+          <div className="full-details-list">
+            <h4>Full Incident Details:</h4>
+
+            {incident.additional_resources && (
+              <ResourceLinkParser 
+                resourceKey="additional_resources"
+                resourceString={incident.additional_resources}
+              />
+            )}
+
+            {Object.entries(incident).map(([key, value]) => {
+              if (explicitlyHandledKeys.has(key) || !value) {
+                return null;
+              }
+              if (key.endsWith('_title')) {
+                return null;
+              }
+              if (typeof value === 'object' && value !== null) {
+                return null;
+              }
+
+              if (typeof value === 'string' && value.startsWith('http')) {
+                const titleKey = `${key}_title`;
+                const title = incident[titleKey] || 'View Source';
+                return (
+                  <p key={key}>
+                    <strong>{formatKey(key)}:</strong> 
+                    <a href={value} target="_blank" rel="noopener noreferrer"> {title}</a>
+                  </p>
+                );
+              }
+
+              return (
+                <p key={key}><strong>{formatKey(key)}:</strong> {String(value)}</p>
+              );
+            })}
+          </div>
         )}
       </div>
     </div>

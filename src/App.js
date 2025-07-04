@@ -38,7 +38,9 @@ function App() {
   };
 
   useEffect(() => {
-    if (mapRef && selectedIncident) {
+    // --- THIS IS THE FIX ---
+    // Only try to pan the map if the selected incident and its coordinates are valid.
+    if (mapRef && selectedIncident && typeof selectedIncident.latitude === 'number' && typeof selectedIncident.longitude === 'number') {
       mapRef.panTo({
         lat: selectedIncident.latitude,
         lng: selectedIncident.longitude
