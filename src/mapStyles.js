@@ -63,7 +63,7 @@ const mapStyles = [
     "stylers": [
       { "visibility": "on" },
       { "color": "#b0b0b0" }, // A slightly lighter grey for states
-      { "weight": 0.5 }
+      { "weight": 2.0 }
     ]
   }
 ];
