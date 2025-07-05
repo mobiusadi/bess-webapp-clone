@@ -1,5 +1,4 @@
-// CHANGED: 'useEffect' has been removed from this import line
-import React, { useState } from 'react'; 
+import React, { useState } from 'react';
 import LeafletMap from './components/MapContainer'; 
 import IncidentList from './components/IncidentList';
 import FilterControls from './components/FilterControls';
@@ -57,6 +56,7 @@ function App() {
             selectedIncident={selectedIncident}
             onMarkerClick={setSelectedIncident}
           />
+          {/* THIS IS THE FIX: The filter container is now back where it belongs */}
           <div className="filter-lozenge-container">
             <button onClick={() => setIsFilterVisible(!isFilterVisible)} className="filter-lozenge-button">
               Filters
