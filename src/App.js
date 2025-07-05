@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import MapContainer from './components/MapContainer';
+import LeafletMap from './components/MapContainer'; 
 import IncidentList from './components/IncidentList';
 import FilterControls from './components/FilterControls';
 import incidentData from './data/incidents.json';
@@ -14,10 +14,8 @@ const sortedIncidents = incidentData.sort((a, b) => {
 function App() {
   const [incidents] = useState(sortedIncidents);
   const [selectedIncident, setSelectedIncident] = useState(null);
-  const [mapRef, setMapRef] = useState(null);
   
   const [isFilterVisible, setIsFilterVisible] = useState(false);
-
   const [fieldVisibility, setFieldVisibility] = useState({
     country: true,
     year: true,
@@ -37,20 +35,10 @@ function App() {
     }));
   };
 
-  useEffect(() => {
-    if (mapRef && selectedIncident && typeof selectedIncident.latitude === 'number') {
-      mapRef.panTo({
-        lat: selectedIncident.latitude,
-        lng: selectedIncident.longitude
-      });
-    }
-  }, [selectedIncident, mapRef]);
-
   return (
     <div className="App">
       <header className="App-header">
-        {/* The header now only contains the title */}
-        <h1>BESS Incident Map</h1>
+        <h1>BESS Incident Map (Leaflet Version)</h1>
       </header>
 
       <main className="App-main">
@@ -63,14 +51,12 @@ function App() {
           />
         </div>
         <div className="map-container">
-          <MapContainer
+          <LeafletMap
             incidents={incidents}
             selectedIncident={selectedIncident}
+            // NEW: Pass the state-setting function to the map component
             onMarkerClick={setSelectedIncident}
-            onMapLoad={setMapRef}
           />
-          {/* NEW: The filter controls now live inside the map container */}
-          {/* This allows us to position them as a "lozenge" over the map */}
           <div className="filter-lozenge-container">
             <button onClick={() => setIsFilterVisible(!isFilterVisible)} className="filter-lozenge-button">
               Filters

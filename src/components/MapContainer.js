@@ -1,84 +1,70 @@
 import React, { useState } from 'react';
-import { GoogleMap, useJsApiLoader, MarkerF, InfoWindow } from '@react-google-maps/api';
-import mapStyles from '../mapStyles'; // Import our new styles
+import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
+import L from 'leaflet';
 
-const containerStyle = {
-  width: '100%',
-  height: '100%'
-};
-const center = { lat: 30, lng: 0 };
+// This component now uses map.flyTo() for a smooth animation
+function ChangeView({ center, zoom }) {
+  const map = useMap();
+  map.flyTo(center, zoom); // CHANGED: from setView to flyTo
+  return null;
+}
 
-// NEW: Create an options object to hold our custom styles
-const mapOptions = {
-  styles: mapStyles,
-  disableDefaultUI: true, // Optionally hide the default UI like street view
-  zoomControl: true, // But keep the zoom control
-};
-
-const calculateMarkerScale = (mw) => {
+const calculateMarkerRadius = (mw) => {
   if (!mw || typeof mw !== 'number' || mw <= 0) {
-    return 5;
+    return 6;
   }
-  return 5 + Math.log(mw) * 1.5;
+  return 6 + Math.log(mw) * 2;
 };
 
-function MapContainer({ incidents, selectedIncident, onMarkerClick, onMapLoad }) {
-  const { isLoaded } = useJsApiLoader({
-    id: 'google-map-script',
-    googleMapsApiKey: process.env.REACT_APP_Maps_API_KEY
-  });
+function LeafletMap({ incidents, selectedIncident, onMarkerClick }) {
+  const [activeIncident, setActiveIncident] = useState(null);
+  const defaultPosition = [30, 0];
 
-  const [hoveredIncident, setHoveredIncident] = useState(null);
+  return (
+    <MapContainer center={defaultPosition} zoom={2} style={{ height: '100%', width: '100%' }}>
+      {/* CHANGED: Swapped the TileLayer URL to the CARTO "Positron" theme */}
+      <TileLayer
+        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
+        url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
+      />
 
-  return isLoaded ? (
-    // Pass the new 'mapOptions' object to the 'options' prop of the map
-    <GoogleMap 
-      mapContainerStyle={containerStyle} 
-      center={center} 
-      zoom={2} 
-      onLoad={onMapLoad}
-      options={mapOptions}
-    >
-      {incidents.map((incident) => {
-        const isSelected = selectedIncident?.id === incident.id;
-        const scale = calculateMarkerScale(incident.capacity_mw);
+      {selectedIncident && (
+        <ChangeView center={[selectedIncident.latitude, selectedIncident.longitude]} zoom={6} />
+      )}
 
+      {incidents.map(incident => {
         if (typeof incident.latitude !== 'number' || typeof incident.longitude !== 'number') {
           return null;
         }
 
+        const icon = L.divIcon({
+          html: `<svg viewBox="0 0 24 24" width="${calculateMarkerRadius(incident.capacity_mw) * 2}" height="${calculateMarkerRadius(incident.capacity_mw) * 2}"><circle cx="12" cy="12" r="10" fill="${selectedIncident?.id === incident.id ? '#ff0000' : '#007bff'}" fill-opacity="0.8" stroke="white" stroke-width="2"/></svg>`,
+          className: '',
+          iconSize: [calculateMarkerRadius(incident.capacity_mw) * 2, calculateMarkerRadius(incident.capacity_mw) * 2],
+        });
+
         return (
-          <MarkerF
-            key={incident.id}
-            position={{ lat: incident.latitude, lng: incident.longitude }}
-            title={`${incident.location} (${incident.capacity_mw} MW)`}
-            onClick={() => onMarkerClick(incident)}
-            onMouseOver={() => setHoveredIncident(incident)}
-            onMouseOut={() => setHoveredIncident(null)}
-            
-            icon={{
-              path: window.google.maps.SymbolPath.CIRCLE,
-              scale: isSelected ? scale * 1.5 : scale,
-              fillColor: isSelected ? '#ff0000' : '#007bff',
-              fillOpacity: 0.9,
-              strokeWeight: 1,
-              strokeColor: '#ffffff'
+          <Marker 
+            key={incident.id} 
+            position={[incident.latitude, incident.longitude]}
+            icon={icon}
+            eventHandlers={{
+              mouseover: () => setActiveIncident(incident),
+              mouseout: () => setActiveIncident(null),
+              click: () => onMarkerClick(incident),
             }}
-            zIndex={isSelected ? 100 : 1}
           >
-            {hoveredIncident?.id === incident.id && (
-              <InfoWindow onCloseClick={() => setHoveredIncident(null)}>
-                <div className="map-infowindow">
-                  <h4>{incident.location}</h4>
-                  <p>{incident.capacity_mw ? `${incident.capacity_mw} MW` : 'Rating N/A'}</p>
-                </div>
-              </InfoWindow>
+            {activeIncident?.id === incident.id && (
+              <Popup>
+                <b>{incident.location}</b><br />
+                {incident.capacity_mw && `${incident.capacity_mw} MW`}
+              </Popup>
             )}
-          </MarkerF>
-        )
+          </Marker>
+        );
       })}
-    </GoogleMap>
-  ) : <></>;
+    </MapContainer>
+  );
 }
 
-export default React.memo(MapContainer);
+export default LeafletMap;
