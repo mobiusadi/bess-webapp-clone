@@ -57,7 +57,7 @@
 .tag-year { background-color: #28a745; }
 .tag-power { background-color: #ffc107; color: #212529; }
 .tag-energy { background-color: #fd7e14; }
-.filter-lozenge-container { position: absolute; top: 15px; right: 15px; z-index: 400; } /* Lower z-index than header */
+.filter-lozenge-container { position: absolute; top: 15px; right: 15px; z-index: 1010; } /* Lower z-index than header */
 .filter-lozenge-button { background-color: rgba(255, 255, 255, 0.9); color: #24292e; border: 1px solid #ccc; padding: 8px 16px; border-radius: 20px; cursor: pointer; box-shadow: 0 2px 6px rgba(0,0,0,0.3); font-weight: 500; }
 .filter-lozenge-button:hover { background-color: #fff; border-color: #999; }
 .filter-controls { position: absolute; top: 120%; right: 0; width: 350px; z-index: 400; border: 1px solid #ccc; border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.2); padding: 1rem; background-color: #f6f8fa; text-align: left; }
