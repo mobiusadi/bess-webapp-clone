@@ -1,5 +1,5 @@
 import React from 'react';
-import ResourceLinkParser from './ResourceLinkParser'; // This line must be correct
+import ResourceLinkParser from './ResourceLinkParser';
 
 const formatKey = (key) => {
   return key.replace(/_/g, ' ').replace(/\b\w/g, char => char.toUpperCase());
@@ -11,8 +11,16 @@ const explicitlyHandledKeys = new Set([
   'root_cause', 'additional_resources'
 ]);
 
+// We can reuse the parsing logic here or just do it inline
+const getYearFromDate = (dateString) => {
+  if (!dateString || typeof dateString !== 'string') return null;
+  const date = new Date(dateString.replace(' ', 'T'));
+  return isNaN(date.getTime()) ? 'Invalid Date' : date.getFullYear();
+};
+
 function IncidentItem({ incident, isSelected, onClick, fieldVisibility }) {
-  const year = incident.event_date ? new Date(incident.event_date).getFullYear() : null;
+  // Use our robust function to get the year
+  const year = getYearFromDate(incident.event_date);
 
   return (
     <div
@@ -30,6 +38,7 @@ function IncidentItem({ incident, isSelected, onClick, fieldVisibility }) {
       <div className="incident-content">
         <div className="incident-tags">
           {(fieldVisibility.country || isSelected) && incident.country && <span className="tag tag-country">{incident.country}</span>}
+          {/* Now we use the safely calculated year */}
           {(fieldVisibility.year || isSelected) && year && <span className="tag tag-year">{year}</span>}
           {(fieldVisibility.capacity_mw || isSelected) && incident.capacity_mw && <span className="tag tag-power">{incident.capacity_mw} MW</span>}
           {(fieldVisibility.capacity_mwh || isSelected) && incident.capacity_mwh && <span className="tag tag-energy">{incident.capacity_mwh} MWh</span>}
@@ -67,7 +76,7 @@ function IncidentItem({ incident, isSelected, onClick, fieldVisibility }) {
                 return (
                   <p key={key}>
                     <strong>{formatKey(key)}:</strong> 
-                    <a href={value} target="_blank" rel="noopener noreferrer"> {title}</a>
+                    <a href={value} target="_blank" rel="noopener noreferrer">{title}</a>
                   </p>
                 );
               }

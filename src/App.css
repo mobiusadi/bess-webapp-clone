@@ -82,3 +82,26 @@
   .App-header h1 { font-size: 1.1rem; }
   .App-main { height: calc(100vh - 40px); }
 }
+/* --- Fallback Styles for Older Browsers --- */
+
+.incident-tags {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 0.5rem;
+}
+
+/* Use margin as a fallback for the 'gap' property */
+.incident-tags > * {
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.checkbox-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+}
+
+/* Use margin as a fallback for the 'gap' property */
+.checkbox-grid > * {
+  margin-bottom: 0.5rem;
+}

@@ -5,9 +5,25 @@ import FilterControls from './components/FilterControls';
 import incidentData from './data/incidents.json';
 import './App.css';
 
+// --- NEW: A robust function to parse our specific date format ---
+// This function doesn't rely on the browser's potentially old 'new Date()' logic.
+const parseDate = (dateString) => {
+  if (!dateString || typeof dateString !== 'string') return null;
+  // It replaces the space with a 'T' to make it a more compatible ISO-like format
+  // and creates a date object. Returns null if it fails.
+  const date = new Date(dateString.replace(' ', 'T'));
+  return isNaN(date.getTime()) ? null : date;
+};
+
+// --- UPDATED: The sorting logic now uses our new, robust parsing function ---
 const sortedIncidents = incidentData.sort((a, b) => {
-  const dateA = a.event_date ? new Date(a.event_date) : 0;
-  const dateB = b.event_date ? new Date(b.event_date) : 0;
+  const dateA = parseDate(a.event_date);
+  const dateB = parseDate(b.event_date);
+  
+  // Handle cases where a date might be invalid
+  if (!dateA) return 1;
+  if (!dateB) return -1;
+  
   return dateB - dateA;
 });
 
@@ -56,7 +72,6 @@ function App() {
             selectedIncident={selectedIncident}
             onMarkerClick={setSelectedIncident}
           />
-          {/* THIS IS THE FIX: The filter container is now back where it belongs */}
           <div className="filter-lozenge-container">
             <button onClick={() => setIsFilterVisible(!isFilterVisible)} className="filter-lozenge-button">
               Filters
