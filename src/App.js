@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+// CHANGED: 'useEffect' has been removed from this import line
+import React, { useState } from 'react'; 
 import LeafletMap from './components/MapContainer'; 
 import IncidentList from './components/IncidentList';
 import FilterControls from './components/FilterControls';
@@ -54,7 +55,6 @@ function App() {
           <LeafletMap
             incidents={incidents}
             selectedIncident={selectedIncident}
-            // NEW: Pass the state-setting function to the map component
             onMarkerClick={setSelectedIncident}
           />
           <div className="filter-lozenge-container">
