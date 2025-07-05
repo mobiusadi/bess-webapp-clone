@@ -4,27 +4,13 @@ import IncidentList from './components/IncidentList';
 import FilterControls from './components/FilterControls';
 import incidentData from './data/incidents.json';
 import './App.css';
+// NEW: Import the filter icon
+import filterIcon from './assets/icon-filter.png';
 
-// --- NEW: A robust function to parse our specific date format ---
-// This function doesn't rely on the browser's potentially old 'new Date()' logic.
-const parseDate = (dateString) => {
-  if (!dateString || typeof dateString !== 'string') return null;
-  // It replaces the space with a 'T' to make it a more compatible ISO-like format
-  // and creates a date object. Returns null if it fails.
-  const date = new Date(dateString.replace(' ', 'T'));
-  return isNaN(date.getTime()) ? null : date;
-};
-
-// --- UPDATED: The sorting logic now uses our new, robust parsing function ---
 const sortedIncidents = incidentData.sort((a, b) => {
-  const dateA = parseDate(a.event_date);
-  const dateB = parseDate(b.event_date);
-  
-  // Handle cases where a date might be invalid
-  if (!dateA) return 1;
-  if (!dateB) return -1;
-  
-  return dateB - dateA;
+  const dateA = new Date(a.event_date.replace(' ', 'T'));
+  const dateB = new Date(b.event_date.replace(' ', 'T'));
+  return isNaN(dateA.getTime()) ? 1 : isNaN(dateB.getTime()) ? -1 : dateB - dateA;
 });
 
 function App() {
@@ -54,7 +40,20 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>BESS Incident Map (Leaflet Version)</h1>
+        <h1>BESS Incident Map</h1>
+        {/* The filter logic is now back in the header */}
+        <div className="header-controls">
+          <button onClick={() => setIsFilterVisible(!isFilterVisible)} className="filter-toggle-button">
+            {/* Use the imported icon instead of text */}
+            <img src={filterIcon} alt="Filters" />
+          </button>
+          {isFilterVisible && (
+            <FilterControls 
+              visibility={fieldVisibility}
+              onVisibilityChange={handleVisibilityChange}
+            />
+          )}
+        </div>
       </header>
 
       <main className="App-main">
@@ -72,17 +71,6 @@ function App() {
             selectedIncident={selectedIncident}
             onMarkerClick={setSelectedIncident}
           />
-          <div className="filter-lozenge-container">
-            <button onClick={() => setIsFilterVisible(!isFilterVisible)} className="filter-lozenge-button">
-              Filters
-            </button>
-            {isFilterVisible && (
-              <FilterControls 
-                visibility={fieldVisibility}
-                onVisibilityChange={handleVisibilityChange}
-              />
-            )}
-          </div>
         </div>
       </main>
     </div>
