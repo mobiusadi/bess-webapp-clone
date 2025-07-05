@@ -2,10 +2,9 @@ import React, { useState } from 'react';
 import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
 import L from 'leaflet';
 
-// This component now uses map.flyTo() for a smooth animation
 function ChangeView({ center, zoom }) {
   const map = useMap();
-  map.flyTo(center, zoom); // CHANGED: from setView to flyTo
+  map.flyTo(center, zoom);
   return null;
 }
 
@@ -22,10 +21,10 @@ function LeafletMap({ incidents, selectedIncident, onMarkerClick }) {
 
   return (
     <MapContainer center={defaultPosition} zoom={2} style={{ height: '100%', width: '100%' }}>
-      {/* CHANGED: Swapped the TileLayer URL to the CARTO "Positron" theme */}
+      {/* FINAL FIX: Using the official, standard OpenStreetMap tile layer */}
       <TileLayer
-        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
-        url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
+        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
 
       {selectedIncident && (
