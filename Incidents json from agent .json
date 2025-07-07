@@ -1,0 +1,1835 @@
+JSON The blaze was contained after eight hours but was not declared fully extinguished until October 5, nearly two weeks later, destroying 10 of the 40 modular batteries.[1, 3] In response, NGK immediately halted operations of all its NaS battery systems worldwide and suspended production to conduct a comprehensive investigation into the cause.[3]",
+      "root_cause_analysis": {
+        "assessment": "An investigation committee established by the manufacturer, NGK, determined that the fire originated from a single battery cell due to a manufacturing defect. This flaw caused a localized high temperature, leading to the cell's rupture. The rupture then created a short circuit within the modular battery, triggering a cascading thermal event that engulfed the entire module in fire.",
+        "confidence": "Confirmed"
+      },
+      "impact": {
+        "fatalities": 0,
+        "injuries": 0,
+        "operational_outcome": "Repaired"
+      },
+      "system_specifications": {
+        "battery_chemistry": "Unknown",
+        "system_size_mwh": 0
+      }
+    },
+    "sources":
+  },
+  {
+    "incident_id": "2",
+    "location": "US, HI, Kahuku",
+    "date": "2012-08-01",
+    "status": "Analysis Complete",
+    "findings": {
+      "summary": "A significant fire destroyed a 15 MW / 10 MWh lead-acid battery energy storage system at the 30 MW Kahuku wind farm on Oahu. The system, supplied by Xtreme Power, was designed to smooth the variable output of the wind turbines. The fire began in the early morning and burned for over a day, leading to the collapse of the battery building, which was declared a total loss.[4, 5] This was the third fire incident at the facility; two previous, smaller fires in April and May 2011 were attributed to faulty capacitors within the inverters, supplied by Dynapower, which led to a lawsuit by Xtreme Power.[6, 7]",
+      "root_cause_analysis": {
+        "assessment": "Due to the extensive damage and complete destruction of the facility, an official root cause for the final, catastrophic fire was never determined.[8] However, the facility's history of two prior fires definitively linked to faulty inverter components strongly suggests a persistent issue with the balance-of-system electronics rather than the lead-acid batteries themselves. The repeated failures point to systemic design or component flaws in the power conversion system.",
+        "confidence": "Likely"
+      },
+      "impact": {
+        "fatalities": 0,
+        "injuries": 0,
+        "operational_outcome": "Decommissioned"
+      },
+      "system_specifications": {
+        "battery_chemistry": "Unknown",
+        "system_size_mwh": 10
+      }
+    },
+    "sources": [
+      "https://www.wind-watch.org/news/2014/02/15/kahuku-wind-project-back-online-following-2012-energy-storage-fire/",
+      "https://www.rechargenews.com/technology/fire-destroys-15mw-wind-energy-storage-system-in-hawaii/1-1-840598"
+    ]
+  },
+  {
+    "incident_id": "3",
+    "location": "US, AZ, Flagstaff",
+    "date": "2012-11-26",
+    "status": "Analysis Complete",
+    "findings": {
+      "summary": "A fire occurred at a 0.5 MW / 1.5 MWh lithium-ion BESS located at the Arizona Public Service (APS) Elden substation in Flagstaff. The system, supplied by integrator Electrovaya, was part of a solar integration project.[9, 10] This event was one of the first significant lithium-ion BESS fires for a major U.S. utility and served as an important, albeit incomplete, learning experience prior to the more severe APS McMicken facility explosion in 2019.",
+      "root_cause_analysis": {
+        "assessment": "According to an Arizona Corporation Commission document, the fire was caused by an operational and control system failure. A battery cell was 'severely discharged' and then 'continuously charged against the design of the system'. This abusive condition led to irreversible internal cell damage, separator compromise, thermal runaway, and the release of toxic hydrogen fluoride gas.[11] The failure points to an inability of the battery management system (BMS) to prevent operations outside of safe parameters.",
+        "confidence": "Likely"
+      },
+      "impact": {
+        "fatalities": 0,
+        "injuries": 0,
+        "operational_outcome": "Decommissioned"
+      },
+      "system_specifications": {
+        "battery_chemistry": "Unknown",
+        "system_size_mwh": 1.5
+      }
+    },
+    "sources": [
+      "https://www.bestmag.co.uk/lithium-ion-unacceptable-risk-claims-arizona-regulator/",
+      "https://www.utilitydive.com/news/aps-storage-facility-explosion-raises-questions-about-battery-safety/553540/"
+    ]
+  },
+  {
+    "incident_id": "4",
+    "location": "US, WA, Port Angeles",
+    "date": "2013-07-03",
+    "status": "Analysis Complete",
+    "findings": {
+      "summary": "A fire broke out in a battery room at The Landing mall, which housed a BESS intended for energy shifting and future integration with a wind turbine. The fire produced significant chemical-laden smoke, prompting the evacuation of the mall and the adjacent City Pier.[12] The fire was extinguished but reignited six days later on July 9, when a surviving battery that had not been removed ignited and melted surrounding plastic materials.[13]",
+      "root_cause_analysis": {
+        "assessment": "News reports attributed the fire to an 'electrical fault in the battery system' or a short circuit.[12, 13] The reignition event strongly indicates that the initial failure was a thermal runaway event within one or more battery cells and that the hazard was not fully mitigated after the first fire, a common issue with early lithium-ion battery fires where stranded energy remains.",
+        "confidence": "Speculated"
+      },
+      "impact": {
+        "fatalities": 0,
+        "injuries": 0,
+        "operational_outcome": "Decommissioned"
+      },
+      "system_specifications": {
+        "battery_chemistry": "Unknown",
+        "system_size_mwh": 0
+      }
+    },
+    "sources": [
+      "https://www.peninsuladailynews.com/news/fire-erupts-again-in-landing-battery-room/",
+      "https://www.peninsuladailynews.com/news/smoky-fire-at-the-landing-prompts-evacuations-batteries-for-wind-power-system-in-flames-video/"
+    ]
+  },
+  {
+    "incident_id": "5",
+    "location": "US, WI, Franklin",
+    "date": "2016-08-10",
+    "status": "Analysis Complete",
+    "findings": {
+      "summary": "A fire occurred at the S&C Electric Company's assembly facility in Franklin, Wisconsin. The fire involved a utility-scale lithium-ion BESS that was in a partially assembled state and not connected to a power source or load.[14] The fire began while an agent of the battery manufacturer was working on the system. Although the container's fire suppression system was not yet functional, the fire was contained to a single container due to its compartmentalized design and was extinguished within a few hours.[15]",
+      "root_cause_analysis": {
+        "assessment": "S&C Electric issued a detailed report confirming the fire was not a spontaneous battery thermal runaway. The fire initiated in one of the DC power and control compartments of a battery rack and then propagated to the adjacent batteries.[14, 16] This points to a failure in the balance-of-system electronics or a procedural error during the assembly process, not an inherent cell defect.",
+        "confidence": "Confirmed"
+      },
+      "impact": {
+        "fatalities": 0,
+        "injuries": 1,
+        "operational_outcome": "Unknown"
+      },
+      "system_specifications": {
+        "battery_chemistry": "Unknown",
+        "system_size_mwh": 0
+      }
+    },
+    "sources": [
+      "https://eepower.com/news/sc-reports-on-li-battery-fire-at-its-franklin-facility/",
+      "https://www.fox6now.com/news/damage-may-exceed-3-million-after-lithium-ion-battery-fire-at-sc-electric-in-franklin"
+    ]
+  },
+  {
+    "incident_id": "6",
+    "location": "China, Shanxi",
+    "date": "2017-03-07",
+    "status": "Analysis Complete",
+    "findings": {
+      "summary": "A fire occurred involving BESS containers at a power station in Shanxi province, China. Publicly available information on this event is extremely limited.[17, 18] Notably, the same site experienced a second fire incident in December 2017, suggesting a potential unresolved systemic issue.",
+      "root_cause_analysis": {
+        "assessment": "No official investigation reports or detailed media coverage are publicly available. The root cause remains unknown.",
+        "confidence": "Unknown"
+      },
+      "impact": {
+        "fatalities": 0,
+        "injuries": 0,
+        "operational_outcome": "Unknown"
+      },
+      "system_specifications": {
+        "battery_chemistry": "Unknown",
+        "system_size_mwh": 0
+      }
+    },
+    "sources":
+  },
+  {
+    "incident_id": "7",
+    "location": "South Korea, North Jeolla, Gochang",
+    "date": "2017-08-02",
+    "status": "Analysis Complete",
+    "findings": {
+      "summary": "A fire occurred at a 1.46 MWh BESS connected to a wind power installation in Gochang. The incident took place at 05:29 while the system was in an 'Install' state with a State of Charge (SOC) of 30%.[19] This was the first in a series of over two dozen BESS fires in South Korea between 2017 and 2019, which prompted a nationwide investigation by the Ministry of Trade, Industry and Energy (MOTIE).[20, 21]",
+      "root_cause_analysis": {
+        "assessment": "A specific cause for this individual fire was not publicly released. However, the comprehensive MOTIE investigation into the 23 fires identified four systemic root causes: insufficient electrical protection systems, inadequate management of the operating environment (e.g., humidity, dust), faulty installation practices, and poor integration between control systems (BMS, EMS, PCS) from different vendors.[20]",
+        "confidence": "Likely"
+      },
+      "impact": {
+        "fatalities": 0,
+        "injuries": 0,
+        "operational_outcome": "Unknown"
+      },
+      "system_specifications": {
+        "battery_chemistry": "NMC",
+        "system_size_mwh": 1.46
+      }
+    },
+    "sources": [
+      "https://www.mdpi.com/2571-6255/6/10/389",
+      "https://liiontamer.com/south-korea-identifies-top-4-causes-that-led-to-ess-fires/"
+    ]
+  },
+  {
+    "incident_id": "8",
+    "location": "Belgium, Drogenbos",
+    "date": "2017-11-11",
+    "status": "Analysis Complete",
+    "findings": {
+      "summary": "A fire and subsequent explosion destroyed a 1 MW containerized lithium-ion battery system at the ENGIE Energy Storage Park, an experimental facility in Drogenbos. The incident occurred during the commissioning phase of the system, which was supplied by Engie Ineo.[22, 23] A strong explosion blew the container door off before firefighters arrived. The firefighting operation lasted 12 hours, and residents in nearby towns were advised to shelter in place due to a large chemical cloud, which led to 50 emergency calls for respiratory irritation.[24, 25]",
+      "root_cause_analysis": {
+        "assessment": "The official cause was not publicly released by Engie. The event occurred during commissioning, a known high-risk period. The failure of the installed fire detection and suppression systems to prevent the blaze, coupled with the explosion, strongly suggests a rapid, cascading thermal runaway event that generated a significant volume of flammable off-gas, which then ignited.",
+        "confidence": "Likely"
+      },
+      "impact": {
+        "fatalities": 0,
+        "injuries": 0,
+        "operational_outcome": "Decommissioned"
+      },
+      "system_specifications": {
+        "battery_chemistry": "Unknown",
+        "system_size_mwh": 0
+      }
+    },
+    "sources": [
+      "https://www.greentechmedia.com/articles/read/engie-investigates-source-of-belgian-battery-blaze",
+      "https://cfpa-e.eu/fire-in-a-battery-energy-storage-system/"
+    ]
+  },
+  {
+    "incident_id": "9",
+    "location": "China, Shanxi",
+    "date": "2017-12-21",
+    "status": "Analysis Complete",
+    "findings": {
+      "summary": "This was the second fire incident reported at the same power station in Shanxi province that had a fire in March 2017. As with the first event, there is a significant lack of credible public information regarding the specifics of the incident, its cause, or its impact.[17]",
+      "root_cause_analysis": {
+        "assessment": "No official investigation reports or detailed media coverage are publicly available. A repeat fire at the same location strongly suggests a systemic design, component, or operational issue that was not adequately addressed after the first fire.",
+        "confidence": "Unknown"
+      },
+      "impact": {
+        "fatalities": 0,
+        "injuries": 0,
+        "operational_outcome": "Unknown"
+      },
+      "system_specifications": {
+        "battery_chemistry": "Unknown",
+        "system_size_mwh": 0
+      }
+    },
+    "sources":
+  },
+  {
+    "incident_id": "10",
+    "location": "South Korea, North Gyeongsang, Gyeongsan",
+    "date": "2018-05-02",
+    "status": "Analysis Complete",
+    "findings": {
+      "summary": "A fire occurred at the Korea Electric Power Corporation (KEPCO) Gyeongsan substation, which housed a 48 MW BESS for frequency regulation.[26] At the time of its commissioning in 2016, it was the world's largest frequency regulation ESS. The fire occurred at 20:59 while the system was in an 'Inspect' state. This incident was part of the series of fires that led to a nationwide investigation in South Korea.[21]",
+      "root_cause_analysis": {
+        "assessment": "No specific cause for this individual fire was publicly identified. The government's comprehensive investigation into the 23 fires pointed to systemic issues rather than single-point failures, including insufficient electrical protection, poor environmental management, faulty installation, and inadequate system integration.[20]",
+        "confidence": "Likely"
+      },
+      "impact": {
+        "fatalities": 0,
+        "injuries": 0,
+        "operational_outcome": "Unknown"
+      },
+      "system_specifications": {
+        "battery_chemistry": "NMC",
+        "system_size_mwh": 8.6
+      }
+    },
+    "sources": [
+      "https://english.etnews.com/20220622200003",
+      "https://www.mdpi.com/2571-6255/6/10/389"
+    ]
+  },
+  {
+    "incident_id": "11",
+    "location": "South Korea, South Jeolla, Yeongam",
+    "date": "2018-06-02",
+    "status": "Analysis Complete",
+    "findings": {
+      "summary": "A fire occurred at a 14 MWh wind-integrated BESS in Yeongam. The incident happened at 16:13 while the system was in an 'Inspect' state.[19] This was another of the 23 fires included in the first phase of the South Korean government's investigation into BESS safety.[21]",
+      "root_cause_analysis": {
+        "assessment": "A specific cause for this individual fire was not publicly released. The comprehensive MOTIE investigation into the series of fires identified four systemic root causes: insufficient electrical protection systems, inadequate management of the operating environment, faulty installation practices, and poor integration between control systems from different vendors.[20]",
+        "confidence": "Likely"
+      },
+      "impact": {
+        "fatalities": 0,
+        "injuries": 0,
+        "operational_outcome": "Unknown"
+      },
+      "system_specifications": {
+        "battery_chemistry": "NMC",
+        "system_size_mwh": 14
+      }
+    },
+    "sources": [
+      "https://www.mdpi.com/2571-6255/6/10/389",
+      "https://liiontamer.com/south-korea-identifies-top-4-causes-that-led-to-ess-fires/"
+    ]
+  },
+  {
+    "incident_id": "12",
+    "location": "South Korea, North Jeolla, Gunsan",
+    "date": "2018-06-15",
+    "status": "Analysis Complete",
+    "findings": {
+      "summary": "A fire occurred at a solar-integrated BESS located in Saemangeum, near Gunsan. The system had a capacity of 18.9 MWh and was fully charged (100% SOC) when the fire broke out at 14:38.[19] This incident was part of the first wave of 23 fires investigated by the South Korean government.[21]",
+      "root_cause_analysis": {
+        "assessment": "A specific cause for this individual fire was not publicly released. The comprehensive MOTIE investigation into the series of fires identified four systemic root causes: insufficient electrical protection systems, inadequate management of the operating environment, faulty installation practices, and poor integration between control systems from different vendors. The high state of charge (100%) was identified as a significant stress factor in many of the fires.[19, 20]",
+        "confidence": "Likely"
+      },
+      "impact": {
+        "fatalities": 0,
+        "injuries": 0,
+        "operational_outcome": "Unknown"
+      },
+      "system_specifications": {
+        "battery_chemistry": "NMC",
+        "system_size_mwh": 18.9
+      }
+    },
+    "sources": [
+      "https://www.mdpi.com/2571-6255/6/10/389",
+      "https://liiontamer.com/south-korea-identifies-top-4-causes-that-led-to-ess-fires/"
+    ]
+  },
+  {
+    "incident_id": "13",
+    "location": "South Korea, South Jeolla, Haenam",
+    "date": "2018-07-12",
+    "status": "Analysis Complete",
+    "findings": {
+      "summary": "A fire occurred at a 2.9 MWh solar-integrated BESS in Haenam. The system was fully charged, with a State of Charge (SOC) of 98%, when the fire broke out at 16:25.[19] This incident was part of the first wave of 23 fires investigated by the South Korean government.[21]",
+      "root_cause_analysis": {
+        "assessment": "A specific cause for this individual fire was not publicly released. The comprehensive MOTIE investigation into the series of fires identified four systemic root causes: insufficient electrical protection systems, inadequate management of the operating environment, faulty installation practices, and poor integration between control systems. The high state of charge was a common contributing factor.[19, 20]",
+        "confidence": "Likely"
+      },
+      "impact": {
+        "fatalities": 0,
+        "injuries": 0,
+        "operational_outcome": "Unknown"
+      },
+      "system_specifications": {
+        "battery_chemistry": "NMC",
+        "system_size_mwh": 2.9
+      }
+    },
+    "sources": [
+      "https://www.mdpi.com/2571-6255/6/10/389",
+      "https://www.pv-magazine.com/2023/07/04/whats-behind-south-koreas-battery-fire-accidents/"
+    ]
+  },
+  {
+    "incident_id": "14",
+    "location": "South Korea, South Gyeongsang, Geochang",
+    "date": "2018-07-21",
+    "status": "Analysis Complete",
+    "findings": {
+      "summary": "A fire occurred at a 9.7 MWh wind-integrated BESS in Geochang. The system was fully charged, with a State of Charge (SOC) of 99.3%, when the fire broke out at 11:14.[19] This incident was part of the first wave of 23 fires investigated by the South Korean government.[21]",
+      "root_cause_analysis": {
+        "assessment": "A specific cause for this individual fire was not publicly released. The comprehensive MOTIE investigation into the series of fires identified four systemic root causes: insufficient electrical protection systems, inadequate management of the operating environment, faulty installation practices, and poor integration between control systems. The extremely high state of charge was a significant stress factor.[19, 20]",
+        "confidence": "Likely"
+      },
+      "impact": {
+        "fatalities": 0,
+        "injuries": 0,
+        "operational_outcome": "Unknown"
+      },
+      "system_specifications": {
+        "battery_chemistry": "NMC",
+        "system_size_mwh": 9.7
+      }
+    },
+    "sources": [
+      "https://www.mdpi.com/2571-6255/6/10/389"
+    ]
+  },
+  {
+    "incident_id": "15",
+    "location": "South Korea, Sejong",
+    "date": "2018-07-28",
+    "status": "Analysis Complete",
+    "findings": {
+      "summary": "A fire occurred at an 18 MWh BESS used for peak load management in Sejong. The incident happened at 08:31 while the system was in an 'Install' state with a State of Charge (SOC) of 35%.[19] This was another of the 23 fires included in the first phase of the South Korean government's investigation.[21]",
+      "root_cause_analysis": {
+        "assessment": "A specific cause for this individual fire was not publicly released. The comprehensive MOTIE investigation into the series of fires identified four systemic root causes: insufficient electrical protection systems, inadequate management of the operating environment, faulty installation practices, and poor integration between control systems. A fire during the installation phase points strongly toward installation error or early-life component failure.[20]",
+        "confidence": "Likely"
+      },
+      "impact": {
+        "fatalities": 0,
+        "injuries": 0,
+        "operational_outcome": "Unknown"
+      },
+      "system_specifications": {
+        "battery_chemistry": "NMC",
+        "system_size_mwh": 18
+      }
+    },
+    "sources": [
+      "https://www.mdpi.com/2571-6255/6/10/389"
+    ]
+  },
+  {
+    "incident_id": "16",
+    "location": "South Korea, Chungcheongbuk-do, Yeongdong",
+    "date": "2018-09-01",
+    "status": "Analysis Complete",
+    "findings": {
+      "summary": "A fire occurred at a 5.9 MWh solar-integrated BESS in Yeongdong, Chungcheongbuk-do province. The system was fully charged, with a State of Charge (SOC) of 98.1%, when the fire broke out at 14:19.[19] This incident was part of the first wave of 23 fires investigated by the South Korean government.[21, 27]",
+      "root_cause_analysis": {
+        "assessment": "A specific cause for this individual fire was not publicly released. The comprehensive MOTIE investigation into the series of fires identified four systemic root causes: insufficient electrical protection systems, inadequate management of the operating environment, faulty installation practices, and poor integration between control systems. The high state of charge was a common contributing factor.[19, 20]",
+        "confidence": "Likely"
+      },
+      "impact": {
+        "fatalities": 0,
+        "injuries": 0,
+        "operational_outcome": "Unknown"
+      },
+      "system_specifications": {
+        "battery_chemistry": "NMC",
+        "system_size_mwh": 5.9
+      }
+    },
+    "sources": [
+      "https://www.mdpi.com/2571-6255/6/10/389",
+      "https://www.pv-magazine-india.com/2019/12/14/the-long-read-south-koreas-burning-issue/"
+    ]
+  },
+  {
+    "incident_id": "17",
+    "location": "South Korea, Chungcheongnam, Taean",
+    "date": "2018-09-07",
+    "status": "Analysis Complete",
+    "findings": {
+      "summary": "A fire occurred at a 6 MWh solar-integrated BESS in Taean, Chungcheongnam province. The system, which used Samsung SDI batteries, was located at a waterfront site and was still in the installation phase when the fire broke out.[28] This incident was part of the first wave of 23 fires investigated by the South Korean government.[21]",
+      "root_cause_analysis": {
+        "assessment": "The EPRI database lists the cause as 'Negligence of the operator & construction defects during construction'.[28] This aligns with the broader findings of the MOTIE investigation, which cited faulty installation as one of the four key systemic causes for the series of fires.[20] A fire during the installation phase is a strong indicator of human error or component failure upon initial power-up.",
+        "confidence": "Likely"
+      },
+      "impact": {
+        "fatalities": 0,
+        "injuries": 0,
+        "operational_outcome": "Unknown"
+      },
+      "system_specifications": {
+        "battery_chemistry": "Unknown",
+        "system_size_mwh": 6
+      }
+    },
+    "sources":
+  },
+  {
+    "incident_id": "18",
+    "location": "South Korea, Jeju",
+    "date": "2018-09-14",
+    "status": "Analysis Complete",
+    "findings": {
+      "summary": "A fire occurred at a small, 0.2 MWh solar-integrated BESS on Jeju Island. The system was four years old and was charging at the time of the incident. The battery modules were a product of Revo Co., Ltd. (a KEPCO product).[29] This was another of the 23 fires included in the first phase of the South Korean government's investigation.[21]",
+      "root_cause_analysis": {
+        "assessment": "The EPRI database attributes the cause to a poor Battery Management System (BMS) and notes the system was 'Not tested before use'.[29] This points to a failure in the control system and poor integration/commissioning practices, which aligns with the systemic findings of the broader MOTIE investigation regarding poor system integration and faulty installation.[20]",
+        "confidence": "Likely"
+      },
+      "impact": {
+        "fatalities": 0,
+        "injuries": 0,
+        "operational_outcome": "Unknown"
+      },
+      "system_specifications": {
+        "battery_chemistry": "Unknown",
+        "system_size_mwh": 0.2
+      }
+    },
+    "sources":
+  },
+  {
+    "incident_id": "19",
+    "location": "South Korea, Gyeonggi, Yongin",
+    "date": "2018-10-18",
+    "status": "Analysis Complete",
+    "findings": {
+      "summary": "A fire occurred at a 17.8 MWh BESS used for frequency regulation in Yongin, Gyeonggi province. The incident happened at 15:23 while the system was in an 'Inspect' state.[19] This was another of the 23 fires included in the first phase of the South Korean government's investigation.[21]",
+      "root_cause_analysis": {
+        "assessment": "A specific cause for this individual fire was not publicly released. The comprehensive MOTIE investigation into the series of fires identified four systemic root causes: insufficient electrical protection systems, inadequate management of the operating environment, faulty installation practices, and poor integration between control systems from different vendors.[20]",
+        "confidence": "Likely"
+      },
+      "impact": {
+        "fatalities": 0,
+        "injuries": 0,
+        "operational_outcome": "Unknown"
+      },
+      "system_specifications": {
+        "battery_chemistry": "NMC",
+        "system_size_mwh": 17.8
+      }
+    },
+    "sources": [
+      "https://www.mdpi.com/2571-6255/6/10/389"
+    ]
+  },
+  {
+    "incident_id": "20",
+    "location": "South Korea, North Gyeongsang, Yeongju",
+    "date": "2018-11-12",
+    "status": "Analysis Complete",
+    "findings": {
+      "summary": "A fire occurred at a 3.7 MWh solar-integrated BESS in Yeongju, North Gyeongsang province. The system was fully charged, with a State of Charge (SOC) of 98.4%, when the fire broke out at 15:55.[19] This incident was part of the first wave of 23 fires investigated by the South Korean government.[21]",
+      "root_cause_analysis": {
+        "assessment": "A specific cause for this individual fire was not publicly released. The comprehensive MOTIE investigation into the series of fires identified four systemic root causes: insufficient electrical protection systems, inadequate management of the operating environment, faulty installation practices, and poor integration between control systems. The high state of charge was a common contributing factor.[19, 20]",
+        "confidence": "Likely"
+      },
+      "impact": {
+        "fatalities": 0,
+        "injuries": 0,
+        "operational_outcome": "Unknown"
+      },
+      "system_specifications": {
+        "battery_chemistry": "NMC",
+        "system_size_mwh": 3.7
+      }
+    },
+    "sources": [
+      "https://www.mdpi.com/2571-6255/6/10/389"
+    ]
+  },
+  {
+    "incident_id": "21",
+    "location": "South Korea, South Chungcheong, Cheonan",
+    "date": "2018-11-12",
+    "status": "Analysis Complete",
+    "findings": {
+      "summary": "A fire occurred at a BESS facility in Cheonan, South Chungcheong province. This was one of the 23 fires that occurred in South Korea between 2017 and 2019, prompting a nationwide investigation. Specific details about this incident, such as system size or application, are scarce in publicly available English-language sources, but it is grouped with the other systemic failures of that period.",
+      "root_cause_analysis": {
+        "assessment": "A specific cause for this individual fire was not publicly identified. The comprehensive MOTIE investigation into the series of fires identified four systemic root causes: insufficient electrical protection systems, inadequate management of the operating environment, faulty installation practices, and poor integration between control systems from different vendors.[20]",
+        "confidence": "Likely"
+      },
+      "impact": {
+        "fatalities": 0,
+        "injuries": 0,
+        "operational_outcome": "Unknown"
+      },
+      "system_specifications": {
+        "battery_chemistry": "Unknown",
+        "system_size_mwh": 0
+      }
+    },
+    "sources": [
+      "https://en.cnesa.org/latest-news/2019/1/28/2018-market-summary-how-china-can-learn-from-south-korea-on-energy-storage-safety",
+      "https://www.mdpi.com/2571-6255/6/10/389"
+    ]
+  },
+  {
+    "incident_id": "22",
+    "location": "South Korea, Gyeongsangbuk-do, Mungyeong",
+    "date": "2018-11-21",
+    "status": "Analysis Complete",
+    "findings": {
+      "summary": "A fire occurred at a 4.2 MWh solar-integrated BESS in Mungyeong (also spelled Munkyung), Gyeongsangbuk-do province. The fire broke out at 17:13 on November 22 (some sources list Nov 21) while the system was fully charged to 95% SOC.[19] This incident was part of the first wave of 23 fires investigated by the South Korean government.[21]",
+      "root_cause_analysis": {
+        "assessment": "A specific cause for this individual fire was not publicly released. The comprehensive MOTIE investigation into the series of fires identified four systemic root causes: insufficient electrical protection systems, inadequate management of the operating environment, faulty installation practices, and poor integration between control systems. The high state of charge was a common contributing factor.[19, 20]",
+        "confidence": "Likely"
+      },
+      "impact": {
+        "fatalities": 0,
+        "injuries": 0,
+        "operational_outcome": "Unknown"
+      },
+      "system_specifications": {
+        "battery_chemistry": "NMC",
+        "system_size_mwh": 4.2
+      }
+    },
+    "sources": [
+      "https://www.mdpi.com/2571-6255/6/10/389"
+    ]
+  },
+  {
+    "incident_id": "23",
+    "location": "South Korea, South Gyeongsang, Geochang",
+    "date": "2018-11-22",
+    "status": "Analysis Complete",
+    "findings": {
+      "summary": "A fire occurred at a 1.3 MWh solar-integrated BESS in Geochang, South Gyeongsang province. The fire broke out at 17:19 while the system was fully charged to 96% SOC.[19] This was one of two fires reported in Geochang on the same day and was part of the first wave of 23 fires investigated by the South Korean government.[21]",
+      "root_cause_analysis": {
+        "assessment": "A specific cause for this individual fire was not publicly released. The comprehensive MOTIE investigation into the series of fires identified four systemic root causes: insufficient electrical protection systems, inadequate management of the operating environment, faulty installation practices, and poor integration between control systems. The high state of charge was a common contributing factor.[19, 20]",
+        "confidence": "Likely"
+      },
+      "impact": {
+        "fatalities": 0,
+        "injuries": 0,
+        "operational_outcome": "Unknown"
+      },
+      "system_specifications": {
+        "battery_chemistry": "NMC",
+        "system_size_mwh": 1.3
+      }
+    },
+    "sources": [
+      "https://www.mdpi.com/2571-6255/6/10/389"
+    ]
+  },
+  {
+    "incident_id": "24",
+    "location": "South Korea, North Chungcheong, Jecheon",
+    "date": "2018-12-17",
+    "status": "Analysis Complete",
+    "findings": {
+      "summary": "A fire destroyed an energy storage system at the Asia Cement plant in Jecheon, North Chungcheong province. The 9.3 MWh system was used for peak load management and was fully charged to 96% SOC when the fire broke out at 07:09.[19, 30] This incident was one of the 23 fires investigated by the South Korean government and resulted in damages estimated at 4.1 billion won (approx. $3.63 million USD).[21, 31]",
+      "root_cause_analysis": {
+        "assessment": "A specific cause for this individual fire was not publicly identified. The comprehensive MOTIE investigation into the series of fires identified four systemic root causes: insufficient electrical protection systems, inadequate management of the operating environment, faulty installation practices, and poor integration between control systems. The high state of charge was a common contributing factor.[19, 20]",
+        "confidence": "Likely"
+      },
+      "impact": {
+        "fatalities": 0,
+        "injuries": 0,
+        "operational_outcome": "Decommissioned"
+      },
+      "system_specifications": {
+        "battery_chemistry": "NMC",
+        "system_size_mwh": 9.3
+      }
+    },
+    "sources": [
+      "https://www.mdpi.com/2571-6255/6/10/389",
+      "https://en.cnesa.org/featured-stories/2019/1/28/2018-market-summary-how-china-can-learn-from-south-korea-on-energy-storage-safety"
+    ]
+  },
+  {
+    "incident_id": "25",
+    "location": "South Korea, Gangwon, Samcheok",
+    "date": "2018-12-22",
+    "status": "Analysis Complete",
+    "findings": {
+      "summary": "A fire occurred at a 2.7 MWh solar-integrated BESS in Samcheok, Gangwon province. The system was fully charged, with a State of Charge (SOC) of 97%, when the fire broke out at 17:30.[19] This incident was part of the first wave of 23 fires investigated by the South Korean government.[21]",
+      "root_cause_analysis": {
+        "assessment": "A specific cause for this individual fire was not publicly released. The comprehensive MOTIE investigation into the series of fires identified four systemic root causes: insufficient electrical protection systems, inadequate management of the operating environment, faulty installation practices, and poor integration between control systems. The high state of charge was a common contributing factor.[19, 20]",
+        "confidence": "Likely"
+      },
+      "impact": {
+        "fatalities": 0,
+        "injuries": 0,
+        "operational_outcome": "Unknown"
+      },
+      "system_specifications": {
+        "battery_chemistry": "NMC",
+        "system_size_mwh": 2.7
+      }
+    },
+    "sources": [
+      "https://www.mdpi.com/2571-6255/6/10/389"
+    ]
+  },
+  {
+    "incident_id": "26",
+    "location": "South Korea, South Gyeongsangnam, Yangsan",
+    "date": "2019-01-14",
+    "status": "Analysis Complete",
+    "findings": {
+      "summary": "A fire occurred at a 3.3 MWh BESS at a factory in Yangsan, South Gyeongsangnam province. The system, with LG Chem batteries and integrated by LG CNS, was used for demand charge management. The fire occurred at 07:31 while the system was charged but inactive.[19, 32] This was the 21st fire in the series investigated by the South Korean government.[21]",
+      "root_cause_analysis": {
+        "assessment": "A specific cause for this individual fire was not publicly released. The comprehensive MOTIE investigation into the series of fires identified four systemic root causes: insufficient electrical protection systems, inadequate management of the operating environment, faulty installation practices, and poor integration between control systems from different vendors.[20]",
+        "confidence": "Likely"
+      },
+      "impact": {
+        "fatalities": 0,
+        "injuries": 0,
+        "operational_outcome": "Unknown"
+      },
+      "system_specifications": {
+        "battery_chemistry": "NMC",
+        "system_size_mwh": 3.3
+      }
+    },
+    "sources":
+  },
+  {
+    "incident_id": "27",
+    "location": "South Korea, South Jeolla, Wando",
+    "date": "2019-01-14",
+    "status": "Analysis Complete",
+    "findings": {
+      "summary": "A fire occurred at a 5.2 MWh solar-integrated BESS in Wando, South Jeolla province. The system was fully charged to 98% SOC when the fire broke out at 14:21.[19] This was the 22nd fire in the series investigated by the South Korean government.[21]",
+      "root_cause_analysis": {
+        "assessment": "A specific cause for this individual fire was not publicly released. The comprehensive MOTIE investigation into the series of fires identified four systemic root causes: insufficient electrical protection systems, inadequate management of the operating environment, faulty installation practices, and poor integration between control systems. The high state of charge was a common contributing factor.[19, 20]",
+        "confidence": "Likely"
+      },
+      "impact": {
+        "fatalities": 0,
+        "injuries": 0,
+        "operational_outcome": "Unknown"
+      },
+      "system_specifications": {
+        "battery_chemistry": "NMC",
+        "system_size_mwh": 5.2
+      }
+    },
+    "sources": [
+      "https://www.mdpi.com/2571-6255/6/10/389"
+    ]
+  },
+  {
+    "incident_id": "28",
+    "location": "South Korea, North Jeolla, Jangsu",
+    "date": "2019-01-15",
+    "status": "Analysis Complete",
+    "findings": {
+      "summary": "A fire occurred at a 2.5 MWh solar-integrated BESS in Jangsu, North Jeolla province. The system was fully charged to 95% SOC when the fire broke out at 16:16.[19] This was the 23rd and final fire included in the first phase of the South Korean government's investigation.[21]",
+      "root_cause_analysis": {
+        "assessment": "A specific cause for this individual fire was not publicly released. The comprehensive MOTIE investigation into the series of fires identified four systemic root causes: insufficient electrical protection systems, inadequate management of the operating environment, faulty installation practices, and poor integration between control systems from different vendors.[20]",
+        "confidence": "Likely"
+      },
+      "impact": {
+        "fatalities": 0,
+        "injuries": 0,
+        "operational_outcome": "Unknown"
+      },
+      "system_specifications": {
+        "battery_chemistry": "NMC",
+        "system_size_mwh": 2.5
+      }
+    },
+    "sources": [
+      "https://www.mdpi.com/2571-6255/6/10/389",
+      "https://liiontamer.com/south-korea-identifies-top-4-causes-that-led-to-ess-fires/"
+    ]
+  },
+  {
+    "incident_id": "29",
+    "location": "South Korea, Ulsan",
+    "date": "2019-01-21",
+    "status": "Analysis Complete",
+    "findings": {
+      "summary": "A fire occurred at a large 47 MWh BESS used for peak load management in Ulsan. The system was fully charged to 100% SOC when the fire broke out at 09:26.[19] Although this fire occurred after the initial 23 incidents, it shared many characteristics, including a very high state of charge.",
+      "root_cause_analysis": {
+        "assessment": "While not part of the initial government investigation, the circumstances align with the systemic issues identified, particularly the risks associated with operating at a very high state of charge and potential electrical or integration faults.[19, 20] A subsequent investigation into post-2019 fires pointed toward battery defects as a more direct cause in some cases.[33]",
+        "confidence": "Likely"
+      },
+      "impact": {
+        "fatalities": 0,
+        "injuries": 0,
+        "operational_outcome": "Unknown"
+      },
+      "system_specifications": {
+        "battery_chemistry": "NMC",
+        "system_size_mwh": 47
+      }
+    },
+    "sources": [
+      "https://www.mdpi.com/2571-6255/6/10/389",
+      "https://www.easybom.com/blog/a/the-technology-is-essencial-for-the-south-korea-s-fire-accident"
+    ]
+  },
+  {
+    "incident_id": "30",
+    "location": "US, OR, Tualatin",
+    "date": "2019-04-11",
+    "status": "Analysis Complete",
+    "findings": {
+      "summary": "A fire broke out in a warehouse in Tualatin, Oregon, involving six large lithium-ion batteries. The incident occurred shortly after 5 p.m. during a new product test being conducted by a business occupant.[34] The building's sprinkler system helped contain the flames, but complete extinguishment was challenging. Surrounding businesses were evacuated as a precaution.",
+      "root_cause_analysis": {
+        "assessment": "The fire occurred during a 'new product test,' which is an inherently high-risk activity. This strongly suggests the failure was related to the test conditions, a design flaw in the new product, or a manufacturing defect in the specific batteries under test, leading to thermal runaway.",
+        "confidence": "Likely"
+      },
+      "impact": {
+        "fatalities": 0,
+        "injuries": 0,
+        "operational_outcome": "Unknown"
+      },
+      "system_specifications": {
+        "battery_chemistry": "Unknown",
+        "system_size_mwh": 0
+      }
+    },
+    "sources":
+  },
+  {
+    "incident_id": "31",
+    "location": "US, AZ, Surprise",
+    "date": "2019-04-19",
+    "status": "Analysis Complete",
+    "findings": {
+      "summary": "A catastrophic failure occurred at the 2 MW / 2 MWh McMicken BESS facility, owned by Arizona Public Service (APS). The event began with a thermal runaway event inside the lithium-ion (NMC) battery container. Approximately three hours later, as a hazardous materials team opened the container door to investigate, a violent deflagration (explosion) occurred, resulting in serious injuries to four firefighters.[35, 36, 37] The incident became a pivotal case study for the global energy storage industry.",
+      "root_cause_analysis": {
+        "assessment": "A comprehensive investigation by DNV GL confirmed a five-step failure chain: 1) An internal cell defect (dendritic growth) initiated thermal runaway in a single battery cell. 2) The installed clean agent fire suppression system was incapable of stopping thermal runaway. 3) The lack of thermal barriers allowed the failure to cascade through an entire rack. 4) The cascading failure produced a large volume of flammable off-gases that accumulated in the sealed container. 5) The introduction of oxygen when firefighters opened the door created an explosive atmosphere that ignited.[36, 38]",
+        "confidence": "Confirmed"
+      },
+      "impact": {
+        "fatalities": 0,
+        "injuries": 8,
+        "operational_outcome": "Decommissioned"
+      },
+      "system_specifications": {
+        "battery_chemistry": "NMC",
+        "system_size_mwh": 2
+      }
+    },
+    "sources":
+  },
+  {
+    "incident_id": "32",
+    "location": "South Korea, North Gyeongsang, Chilgok",
+    "date": "2019-05-04",
+    "status": "Analysis Complete",
+    "findings": {
+      "summary": "A fire occurred at a 3.7 MWh solar-integrated BESS in Chilgok, North Gyeongsang province. The system was fully charged to 96% SOC when the fire broke out at 15:40.[19] This was one of the 23 fires included in the first phase of the South Korean government's investigation.[21]",
+      "root_cause_analysis": {
+        "assessment": "A specific cause for this individual fire was not publicly released. The comprehensive MOTIE investigation into the series of fires identified four systemic root causes: insufficient electrical protection systems, inadequate management of the operating environment, faulty installation practices, and poor integration between control systems. The high state of charge was a common contributing factor.[19, 20]",
+        "confidence": "Likely"
+      },
+      "impact": {
+        "fatalities": 0,
+        "injuries": 0,
+        "operational_outcome": "Unknown"
+      },
+      "system_specifications": {
+        "battery_chemistry": "NMC",
+        "system_size_mwh": 3.7
+      }
+    },
+    "sources": [
+      "https://www.mdpi.com/2571-6255/6/10/389"
+    ]
+  },
+  {
+    "incident_id": "33",
+    "location": "South Korea, North Jeolla, Jangsu",
+    "date": "2019-05-26",
+    "status": "Analysis Complete",
+    "findings": {
+      "summary": "A fire occurred at a 1 MWh solar-integrated BESS located in a mountainous region of Jangsu, North Jeolla province. The system was one year old and was in a charged, discharging state at the time of the incident. According to the EPRI database, the event was not reported to the fire department.[39]",
+      "root_cause_analysis": {
+        "assessment": "No specific cause has been identified. However, as one of the cluster of South Korean fires, it likely shares the systemic root causes identified by the government's investigation, including potential issues with electrical protection, environmental management, installation, or system integration.[20]",
+        "confidence": "Unknown"
+      },
+      "impact": {
+        "fatalities": 0,
+        "injuries": 0,
+        "operational_outcome": "Unknown"
+      },
+      "system_specifications": {
+        "battery_chemistry": "Unknown",
+        "system_size_mwh": 1
+      }
+    },
+    "sources":
+  },
+  {
+    "incident_id": "34",
+    "location": "South Korea, Yesan",
+    "date": "2019-08-30",
+    "status": "Analysis Complete",
+    "findings": {
+      "summary": "A fire occurred at a 1.5 MWh solar-integrated BESS in a mountainous area of Yesan. The system was 1.7 years old and was in a charged but inactive state. This was one of five fires that occurred after the initial government investigation and prompted a second-phase investigation.[33, 40]",
+      "root_cause_analysis": {
+        "assessment": "The second-phase investigation pointed more directly to battery defects as a cause. For this specific incident, analysis noted that the battery's charging rate limit (State of Charge) had been increased from 70% to 95% just two days before the fire.[40] This operational change, combined with potential underlying battery abnormalities, was identified as the likely trigger for the failure.",
+        "confidence": "Likely"
+      },
+      "impact": {
+        "fatalities": 0,
+        "injuries": 0,
+        "operational_outcome": "Unknown"
+      },
+      "system_specifications": {
+        "battery_chemistry": "Unknown",
+        "system_size_mwh": 1.5
+      }
+    },
+    "sources":
+  },
+  {
+    "incident_id": "35",
+    "location": "France, Vitry-sur-Seine",
+    "date": "2019-09-16",
+    "status": "No Credible Information Found",
+    "findings": {
+      "summary": "No credible, verifiable information could be found for a BESS fire incident in Vitry-sur-Seine on this date. A search for a fire at a 2 MW / 5 MWh facility, as sometimes cited in other databases, did not yield primary or high-quality secondary sources confirming the event.",
+      "root_cause_analysis": {
+        "assessment": "N/A",
+        "confidence": "Unknown"
+      },
+      "impact": {
+        "fatalities": 0,
+        "injuries": 0,
+        "operational_outcome": "Unknown"
+      },
+      "system_specifications": {
+        "battery_chemistry": "Unknown",
+        "system_size_mwh": 0
+      }
+    },
+    "sources":
+  },
+  {
+    "incident_id": "36",
+    "location": "South Korea, Pyeongchang",
+    "date": "2019-09-24",
+    "status": "Analysis Complete",
+    "findings": {
+      "summary": "A fire occurred at a solar power generation plant's BESS in Pyeongchang. This was one of the five fires that prompted the second phase of the South Korean government's investigation. The investigation group noted that the facility had a history of overcharge and over-discharge events, and that the battery's protective functions did not operate correctly.[33]",
+      "root_cause_analysis": {
+        "assessment": "The second-phase investigation concluded that the fire was ignited by the batteries. The combination of an operational history involving overcharge/over-discharge cycles and the failure of the battery's own protection systems to prevent these abusive conditions led to the fire.[33] This points to a combination of operational stress and control system failure.",
+        "confidence": "Likely"
+      },
+      "impact": {
+        "fatalities": 0,
+        "injuries": 0,
+        "operational_outcome": "Unknown"
+      },
+      "system_specifications": {
+        "battery_chemistry": "Unknown",
+        "system_size_mwh": 0
+      }
+    },
+    "sources": [
+      "https://english.etnews.com/20200207200002"
+    ]
+  },
+  {
+    "incident_id": "37",
+    "location": "South Korea, Gunwi",
+    "date": "2019-09-29",
+    "status": "Analysis Complete",
+    "findings": {
+      "summary": "A fire occurred at a 1.5 MWh solar-integrated BESS in a mountainous region of Gunwi. The system was 1.8 years old and was discharging at the time of the incident.[41] This was one of the five fires that prompted the second phase of the South Korean government's investigation.[33]",
+      "root_cause_analysis": {
+        "assessment": "The second-phase investigation identified the batteries as the cause of the fire, finding traces of melting consistent with internal ignition. A key operational factor was that the upper State of Charge (SOC) limit had been raised from 70% to 95% five days before the fire occurred, increasing stress on the batteries.[19, 33] The cause is attributed to a combination of operational stress and underlying battery abnormalities.",
+        "confidence": "Likely"
+      },
+      "impact": {
+        "fatalities": 0,
+        "injuries": 0,
+        "operational_outcome": "Unknown"
+      },
+      "system_specifications": {
+        "battery_chemistry": "Unknown",
+        "system_size_mwh": 1.5
+      }
+    },
+    "sources":
+  },
+  {
+    "incident_id": "38",
+    "location": "South Korea, Hadong",
+    "date": "2019-10-21",
+    "status": "Analysis Complete",
+    "findings": {
+      "summary": "A fire occurred at a BESS facility in Hadong. This was one of the five fires that prompted the second phase of the South Korean government's investigation. Unlike the other four cases in this phase, the investigation did not find direct evidence pointing to the battery as the cause of the fire.[33]",
+      "root_cause_analysis": {
+        "assessment": "The investigation group did not find a direct link to a battery fault. Instead, they speculated that the fire occurred when an exposed pressurized live part came into contact with a foreign substance.[33] This suggests a potential failure in the balance-of-system or an external factor, rather than an internal battery failure.",
+        "confidence": "Speculated"
+      },
+      "impact": {
+        "fatalities": 0,
+        "injuries": 0,
+        "operational_outcome": "Unknown"
+      },
+      "system_specifications": {
+        "battery_chemistry": "Unknown",
+        "system_size_mwh": 0
+      }
+    },
+    "sources": [
+      "https://english.etnews.com/20200207200002"
+    ]
+  },
+  {
+    "incident_id": "39",
+    "location": "South Korea, Gimhae",
+    "date": "2019-10-27",
+    "status": "Analysis Complete",
+    "findings": {
+      "summary": "A fire occurred at a BESS facility in Gimhae. This was one of the five fires that prompted the second phase of the South Korean government's investigation. The investigation noted a large deviation in the condition of batteries found at the scene.[33]",
+      "root_cause_analysis": {
+        "assessment": "The second-phase investigation concluded that the fire was ignited by the batteries. The cause was attributed to a combination of operating at a high State of Charge (95%) in violation of government guidelines, coupled with underlying abnormalities in the battery cells.[19, 33]",
+        "confidence": "Likely"
+      },
+      "impact": {
+        "fatalities": 0,
+        "injuries": 0,
+        "operational_outcome": "Unknown"
+      },
+      "system_specifications": {
+        "battery_chemistry": "Unknown",
+        "system_size_mwh": 0
+      }
+    },
+    "sources": [
+      "https://english.etnews.com/20200207200002"
+    ]
+  },
+  {
+    "incident_id": "40",
+    "location": "Australia, Brisbane",
+    "date": "2020-03-17",
+    "status": "Analysis Complete",
+    "findings": {
+      "summary": "A battery on the fifth floor of a Griffith University building in Brisbane caught fire, leading to an explosion. One firefighter was injured during the response. The fire was extinguished within two hours.[9]",
+      "root_cause_analysis": {
+        "assessment": "The cause of the fire is not specified in the available sources. The event involved an explosion, which is consistent with the ignition of accumulated flammable off-gases from a battery undergoing thermal runaway.",
+        "confidence": "Unknown"
+      },
+      "impact": {
+        "fatalities": 0,
+        "injuries": 1,
+        "operational_outcome": "Unknown"
+      },
+      "system_specifications": {
+        "battery_chemistry": "Unknown",
+        "system_size_mwh": 0
+      }
+    },
+    "sources":
+  },
+  {
+    "incident_id": "41",
+    "location": "South Korea, Haenam",
+    "date": "2020-05-27",
+    "status": "Analysis Complete",
+    "findings": {
+      "summary": "A fire occurred at an ESS facility in Haenam. An investigation by the Korea Electrical Safety Corp. (KESC) concluded that the fire resulted from defects in the Samsung SDI batteries used in the system.[42]",
+      "root_cause_analysis": {
+        "assessment": "The Korea Electrical Safety Corp. officially attributed the cause to battery defects. However, Samsung SDI disputed this conclusion, stating that the cause was still unclear.[42] This discrepancy leaves the root cause contested, though the official investigation points to manufacturing defects.",
+        "confidence": "Likely"
+      },
+      "impact": {
+        "fatalities": 0,
+        "injuries": 0,
+        "operational_outcome": "Unknown"
+      },
+      "system_specifications": {
+        "battery_chemistry": "Unknown",
+        "system_size_mwh": 0
+      }
+    },
+    "sources": [
+      "https://www.businesskorea.co.kr/news/articleView.html?idxno=92048"
+    ]
+  },
+  {
+    "incident_id": "42",
+    "location": "UK, Liverpool",
+    "date": "2020-09-15",
+    "status": "Analysis Complete",
+    "findings": {
+      "summary": "An explosion and subsequent fire occurred at the 20 MW / 10 MWh Carnegie Road BESS site, owned by Ørsted and supplied by NEC. The incident, which happened at 12:49 a.m., destroyed one of the three battery containers and scattered debris up to 23 meters.[43, 44] The explosion occurred before fire crews arrived on scene. The fire was contained to the single unit and was fully extinguished two days later.",
+      "root_cause_analysis": {
+        "assessment": "An investigation report confirmed the incident was initiated by a battery failure. The specific batteries involved were part of a known recall program by the manufacturer, LG Chem, due to potential defects.[43] The failure mechanism mirrored the 2019 Arizona incident: thermal runaway led to the accumulation and eventual explosion of flammable off-gases within the container.",
+        "confidence": "Confirmed"
+      },
+      "impact": {
+        "fatalities": 0,
+        "injuries": 0,
+        "operational_outcome": "Repaired"
+      },
+      "system_specifications": {
+        "battery_chemistry": "NMC",
+        "system_size_mwh": 10
+      }
+    },
+    "sources":
+  },
+  {
+    "incident_id": "43",
+    "location": "France, Ariege, Perles-et-Castelet",
+    "date": "2020-12-01",
+    "status": "Analysis Complete",
+    "findings": {
+      "summary": "A fire destroyed a containerized BESS at a RTE (Réseau de Transport d'Électricité) substation in Perles-et-Castelet. The incident occurred during acceptance testing of a new hybrid system that combined 500 kWh of LFP batteries with supercapacitors.[45, 46] The system was designed and installed by the Spanish group Ingeteam. The supercapacitors were not involved in the failure.",
+      "root_cause_analysis": {
+        "assessment": "An official investigation report from the French government (BEA-RI) was published. While the exact initiating event was not definitively concluded, the fire occurred during commissioning tests. The analysis pointed to a likely internal short circuit within a battery module as the initiating event, which then led to thermal runaway and the complete destruction of the container. The report highlighted potential issues with the system's design and safety controls during the testing phase.",
+        "confidence": "Likely"
+      },
+      "impact": {
+        "fatalities": 0,
+        "injuries": 0,
+        "operational_outcome": "Decommissioned"
+      },
+      "system_specifications": {
+        "battery_chemistry": "LFP",
+        "system_size_mwh": 0.5
+      }
+    },
+    "sources":
+  },
+  {
+    "incident_id": "44",
+    "location": "Gogyeong-myeon, Gyeongsangbuk-do, South Korea",
+    "date": "2021-03-11",
+    "status": "No Credible Information Found",
+    "findings": {
+      "summary": "No credible, verifiable information could be found for a BESS fire incident in Gogyeong-myeon on this specific date. This may be the same incident as the one reported in YoungCheon City on the same day, as Gogyeong-myeon is a township within Yeongcheon.",
+      "root_cause_analysis": {
+        "assessment": "N/A",
+        "confidence": "Unknown"
+      },
+      "impact": {
+        "fatalities": 0,
+        "injuries": 0,
+        "operational_outcome": "Unknown"
+      },
+      "system_specifications": {
+        "battery_chemistry": "Unknown",
+        "system_size_mwh": 0
+      }
+    },
+    "sources":
+  },
+  {
+    "incident_id": "45",
+    "location": "South Korea, YoungCheon City",
+    "date": "2021-03-11",
+    "status": "Analysis Complete",
+    "findings": {
+      "summary": "A fire occurred at an ESS facility in Yeongcheon City. An investigation by the Korea Electrical Safety Corp. (KESC) concluded that the fire resulted from defects in the LG Energy Solution batteries used in the system.[42]",
+      "root_cause_analysis": {
+        "assessment": "The Korea Electrical Safety Corp. officially attributed the cause to battery defects. LG Energy Solution accepted the findings, acknowledging that batteries produced in Nanjing between April 2017 and September 2018 had risks related to electrode process problems that could cause a fire under certain conditions. The company initiated a voluntary replacement program.[42]",
+        "confidence": "Confirmed"
+      },
+      "impact": {
+        "fatalities": 0,
+        "injuries": 0,
+        "operational_outcome": "Unknown"
+      },
+      "system_specifications": {
+        "battery_chemistry": "Unknown",
+        "system_size_mwh": 0
+      }
+    },
+    "sources": [
+      "https://www.businesskorea.co.kr/news/articleView.html?idxno=92048"
+    ]
+  },
+  {
+    "incident_id": "46",
+    "location": "South Korea, Hongseong",
+    "date": "2021-04-06",
+    "status": "Analysis Complete",
+    "findings": {
+      "summary": "A fire broke out at a solar-plus-storage facility in Hongseong-gun, Chungcheongnam-do. The fire destroyed 140 units of the energy storage system (ESS), resulting in an estimated 440 million won ($393,000) in property damage.[47] The facility had 3.4 MW of PV capacity and 10 MWh of storage capacity, with batteries manufactured by LG Energy Solution in 2017.[48]",
+      "root_cause_analysis": {
+        "assessment": "An investigation by the Korea Electrical Safety Corp. (KESC) concluded that the fire resulted from battery defects. This was one of several incidents involving LG Energy Solution batteries from a specific manufacturing period (2017-2018), which the company acknowledged had process-related risks and initiated a voluntary recall for.[42]",
+        "confidence": "Confirmed"
+      },
+      "impact": {
+        "fatalities": 0,
+        "injuries": 0,
+        "operational_outcome": "Decommissioned"
+      },
+      "system_specifications": {
+        "battery_chemistry": "Unknown",
+        "system_size_mwh": 10
+      }
+    },
+    "sources":
+  },
+  {
+    "incident_id": "47",
+    "location": "Australia, Bohle Plains",
+    "date": "2021-04-07",
+    "status": "Analysis Complete",
+    "findings": {
+      "summary": "A fire occurred at a 4 MW / 8 MWh BESS facility in Bohle Plains, a suburb of Townsville, Queensland. The incident involved Tesla Powerpack units and happened during the commissioning phase of the project.[49]",
+      "root_cause_analysis": {
+        "assessment": "The specific cause was not publicly released. However, the fire occurring during commissioning is a common pattern, often pointing to installation issues, component failures under initial stress, or software/control system errors. A similar incident with a Tesla Megapack system in Victoria later in 2021 was attributed to a coolant leak, a plausible cause for this event as well.[50]",
+        "confidence": "Speculated"
+      },
+      "impact": {
+        "fatalities": 0,
+        "injuries": 0,
+        "operational_outcome": "Unknown"
+      },
+      "system_specifications": {
+        "battery_chemistry": "Unknown",
+        "system_size_mwh": 8
+      }
+    },
+    "sources":
+  },
+  {
+    "incident_id": "48",
+    "location": "China, Beijing",
+    "date": "2021-04-16",
+    "status": "Analysis Complete",
+    "findings": {
+      "summary": "A fire and subsequent explosion occurred at a 25 MWh lithium-iron phosphate (LFP) BESS facility integrated with a 1.4 MW rooftop solar array and EV charging station in Fengtai District, Beijing. The initial fire was followed two hours later by a sudden explosion in an adjacent section of the facility. The incident resulted in the tragic deaths of two firefighters and one injury, with one station employee also reported missing.[51, 52, 53]",
+      "root_cause_analysis": {
+        "assessment": "An official investigation report concluded the initial fire was caused by an internal short circuit in an LFP battery cell in the southern building, which led to thermal runaway. Critically, flammable off-gases from this fire traveled through an underground cable trench to the adjacent northern building. The gases accumulated there and were ignited by an electrical spark, causing the fatal explosion.[54, 55]",
+        "confidence": "Confirmed"
+      },
+      "impact": {
+        "fatalities": 2,
+        "injuries": 1,
+        "operational_outcome": "Decommissioned"
+      },
+      "system_specifications": {
+        "battery_chemistry": "LFP",
+        "system_size_mwh": 25
+      }
+    },
+    "sources": [
+      "https://www.bestmag.co.uk/report-lithium-ion-battery-explosion-killed-two-china-firemen-proves-inconclusive/",
+      "https://ctif.org/news/accident-analysis-beijing-lithium-battery-explosion-which-killed-two-firefighters"
+    ]
+  },
+  {
+    "incident_id": "49",
+    "location": "US, MI, Standish",
+    "date": "2021-04-19",
+    "status": "No Credible Information Found",
+    "findings": {
+      "summary": "No credible, verifiable information could be found for a BESS fire incident in Standish, Michigan, on this specific date.",
+      "root_cause_analysis": {
+        "assessment": "N/A",
+        "confidence": "Unknown"
+      },
+      "impact": {
+        "fatalities": 0,
+        "injuries": 0,
+        "operational_outcome": "Unknown"
+      },
+      "system_specifications": {
+        "battery_chemistry": "Unknown",
+        "system_size_mwh": 0
+      }
+    },
+    "sources":
+  },
+  {
+    "incident_id": "50",
+    "location": "France, New Caledonia, Boulouparis",
+    "date": "2021-07-13",
+    "status": "No Credible Information Found",
+    "findings": {
+      "summary": "No credible, verifiable information could be found for a BESS fire incident in Boulouparis, New Caledonia, on this specific date.",
+      "root_cause_analysis": {
+        "assessment": "N/A",
+        "confidence": "Unknown"
+      },
+      "impact": {
+        "fatalities": 0,
+        "injuries": 0,
+        "operational_outcome": "Unknown"
+      },
+      "system_specifications": {
+        "battery_chemistry": "Unknown",
+        "system_size_mwh": 0
+      }
+    },
+    "sources":
+  },
+  {
+    "incident_id": "51",
+    "location": "Germany, Neuhardenberg",
+    "date": "2021-07-18",
+    "status": "No Credible Information Found",
+    "findings": {
+      "summary": "No credible, verifiable information could be found for a BESS fire incident in Neuhardenberg, Germany, on this specific date.",
+      "root_cause_analysis": {
+        "assessment": "N/A",
+        "confidence": "Unknown"
+      },
+      "impact": {
+        "fatalities": 0,
+        "injuries": 0,
+        "operational_outcome": "Unknown"
+      },
+      "system_specifications": {
+        "battery_chemistry": "Unknown",
+        "system_size_mwh": 0
+      }
+    },
+    "sources":
+  },
+  {
+    "incident_id": "52",
+    "location": "US, IL, LaSalle",
+    "date": "2021-07-19",
+    "status": "No Credible Information Found",
+    "findings": {
+      "summary": "No credible, verifiable information could be found for a BESS fire incident in LaSalle, Illinois, on this specific date. This may be a conflation with a widely reported fire at a battery recycling facility in Morris, Illinois, in June 2021, which was not a BESS facility.",
+      "root_cause_analysis": {
+        "assessment": "N/A",
+        "confidence": "Unknown"
+      },
+      "impact": {
+        "fatalities": 0,
+        "injuries": 0,
+        "operational_outcome": "Unknown"
+      },
+      "system_specifications": {
+        "battery_chemistry": "Unknown",
+        "system_size_mwh": 0
+      }
+    },
+    "sources":
+  },
+  {
+    "incident_id": "53",
+    "location": "Australia, Victoria, Moorabool",
+    "date": "2021-07-30",
+    "status": "Analysis Complete",
+    "findings": {
+      "summary": "A significant fire occurred during the initial testing and commissioning of the 300 MW / 450 MWh Victorian Big Battery, one of the world's largest BESS facilities. A 13-ton Tesla Megapack unit caught fire, which then spread to an adjacent Megapack. Firefighters adopted a 'let it burn' strategy while protecting surrounding units. The fire burned for several days, and a 'watch and act' alert was issued for nearby residents due to concerns about toxic smoke.",
+      "root_cause_analysis": {
+        "assessment": "A technical investigation confirmed the fire was initiated by a liquid coolant leak within one of the Megapacks. The leak caused arcing within the battery modules, which led to a rapid, cascading thermal runaway event. Contributing factors included the unit being manually disconnected from some monitoring systems for testing and high wind conditions that aided the fire's spread to the adjacent unit.[50]",
+        "confidence": "Confirmed"
+      },
+      "impact": {
+        "fatalities": 0,
+        "injuries": 0,
+        "operational_outcome": "Repaired"
+      },
+      "system_specifications": {
+        "battery_chemistry": "Unknown",
+        "system_size_mwh": 450
+      }
+    },
+    "sources": [
+      "https://www.energy-storage.news/investigation-confirms-cause-of-fire-at-teslas-victorian-big-battery-in-australia/",
+      "https://reneweconomy.com.au/fear-of-big-battery-fires-is-experiencing-its-own-kind-of-thermal-runaway-is-it-justified/"
+    ]
+  },
+  {
+    "incident_id": "54",
+    "location": "US, CA, Moss Landing",
+    "date": "2021-09-04",
+    "status": "Analysis Complete",
+    "findings": {
+      "summary": "An overheating incident occurred at Vistra Corp.'s 300 MW / 1,200 MWh Phase I Moss Landing Energy Storage Facility, the world's largest at the time. The safety systems detected overheating in a limited number of battery modules and triggered the facility's water-based fire suppression system. The incident did not result in a fire, but smoke was observed and the facility was taken offline as a precaution.",
+      "root_cause_analysis": {
+        "assessment": "Vistra's investigation identified that a limited number of joints in the flexible hoses of the liquid-cooling system had failed, spraying coolant onto battery racks. This caused short-circuiting and overheating. The incident was exacerbated by a separate failure in an air-handling unit that allowed smoke to spread, triggering more sprinklers than necessary.",
+        "confidence": "Confirmed"
+      },
+      "impact": {
+        "fatalities": 0,
+        "injuries": 0,
+        "operational_outcome": "Repaired"
+      },
+      "system_specifications": {
+        "battery_chemistry": "NMC",
+        "system_size_mwh": 1200
+      }
+    },
+    "sources":
+  },
+  {
+    "incident_id": "55",
+    "location": "South Korea, Nam-gu, Ulsan",
+    "date": "2022-01-12",
+    "status": "Analysis Complete",
+    "findings": {
+      "summary": "A fire broke out in a three-story building housing a 50 MW battery energy storage system at an SK Energy facility in Ulsan.[56] The specific cause of the fire is under investigation, but it represents another significant BESS fire incident in South Korea.",
+      "root_cause_analysis": {
+        "assessment": "The specific cause has not been publicly released. However, given the history of BESS fires in South Korea, potential causes include battery defects, control system failures, or issues related to the operational environment, consistent with findings from previous government investigations.[42, 56]",
+        "confidence": "Unknown"
+      },
+      "impact": {
+        "fatalities": 0,
+        "injuries": 0,
+        "operational_outcome": "Investigation Ongoing"
+      },
+      "system_specifications": {
+        "battery_chemistry": "Unknown",
+        "system_size_mwh": 0
+      }
+    },
+    "sources": [
+      "https://www.easybom.com/blog/a/the-technology-is-essencial-for-the-south-korea-s-fire-accident"
+    ]
+  },
+  {
+    "incident_id": "56",
+    "location": "South Korea, Gunwi-gun, Gyeongsangbuk-do",
+    "date": "2022-01-17",
+    "status": "No Credible Information Found",
+    "findings": {
+      "summary": "No credible, verifiable information could be found for a BESS fire incident in Gunwi-gun on this specific date. This may be a duplicate or misdated entry for the known incident in Gunwi on September 29, 2019.",
+      "root_cause_analysis": {
+        "assessment": "N/A",
+        "confidence": "Unknown"
+      },
+      "impact": {
+        "fatalities": 0,
+        "injuries": 0,
+        "operational_outcome": "Unknown"
+      },
+      "system_specifications": {
+        "battery_chemistry": "Unknown",
+        "system_size_mwh": 0
+      }
+    },
+    "sources":
+  },
+  {
+    "incident_id": "57",
+    "location": "US, CA, Moss Landing",
+    "date": "2022-02-13",
+    "status": "Analysis Complete",
+    "findings": {
+      "summary": "A second overheating incident occurred at Vistra Corp.'s Moss Landing facility, this time at the 100 MW / 400 MWh Phase II expansion. Similar to the 2021 event, the safety systems detected a developing issue and activated the water-based suppression system, preventing a fire. The facility was taken offline for investigation and repair.",
+      "root_cause_analysis": {
+        "assessment": "Vistra's investigation determined the cause was a fault in a single battery rack's cooling system, which led to the batteries overheating. The safety systems, including the fire suppression system, operated as designed to mitigate the event and prevent a fire or thermal runaway propagation.",
+        "confidence": "Confirmed"
+      },
+      "impact": {
+        "fatalities": 0,
+        "injuries": 0,
+        "operational_outcome": "Repaired"
+      },
+      "system_specifications": {
+        "battery_chemistry": "NMC",
+        "system_size_mwh": 400
+      }
+    },
+    "sources":
+  },
+  {
+    "incident_id": "58",
+    "location": "Taiwan, Taichung City, Longjing District",
+    "date": "2022-03-30",
+    "status": "No Credible Information Found",
+    "findings": {
+      "summary": "No credible, verifiable information could be found for a BESS fire incident in Longjing District on this specific date. This may be a misdated entry for the known fire at a recycling plant in the same district on July 4, 2023.",
+      "root_cause_analysis": {
+        "assessment": "N/A",
+        "confidence": "Unknown"
+      },
+      "impact": {
+        "fatalities": 0,
+        "injuries": 0,
+        "operational_outcome": "Unknown"
+      },
+      "system_specifications": {
+        "battery_chemistry": "Unknown",
+        "system_size_mwh": 0
+      }
+    },
+    "sources":
+  },
+  {
+    "incident_id": "59",
+    "location": "US, CA, Valley Center",
+    "date": "2022-04-05",
+    "status": "Analysis Complete",
+    "findings": {
+      "summary": "A fire was reported at the Valley Center Energy Storage facility, a 140 MW / 560 MWh BESS owned by Terra-Gen. The fire was contained to a single battery container. Firefighters responded and applied water to adjacent containers for cooling while allowing the affected unit to burn out. A shelter-in-place order was issued for nearby residents as a precaution due to potential toxic smoke.",
+      "root_cause_analysis": {
+        "assessment": "The specific cause of the fire was not publicly released by the operator. The incident involved the containment of the fire to a single unit, indicating that physical separation and emergency response protocols were effective in preventing propagation.",
+        "confidence": "Unknown"
+      },
+      "impact": {
+        "fatalities": 0,
+        "injuries": 0,
+        "operational_outcome": "Investigation Ongoing"
+      },
+      "system_specifications": {
+        "battery_chemistry": "Unknown",
+        "system_size_mwh": 560
+      }
+    },
+    "sources": [
+      "https://www.sandiegouniontribune.com/news/public-safety/story/2022-04-06/fire-at-valley-center-battery-storage-facility-prompts-shelter-in-place-warning",
+      "https://www.energy-storage.news/fire-at-terra-gens-140mw-560mwh-valley-center-bess-in-california/"
+    ]
+  },
+  {
+    "incident_id": "60",
+    "location": "US, AZ, Chandler",
+    "date": "2022-04-18",
+    "status": "Analysis Complete",
+    "findings": {
+      "summary": "A fire occurred at Salt River Project's (SRP) 25 MW / 100 MWh Dorman battery storage facility. The fire was contained to a single battery container within the larger facility. SRP and the battery supplier, LG Energy Solution, worked with the Chandler Fire Department to manage the incident. The facility was taken offline for investigation.",
+      "root_cause_analysis": {
+        "assessment": "The cause was identified as an internal failure within a battery rack, which was contained by the facility's safety systems. The incident was not related to external factors or operational error. LG Energy Solution later announced a voluntary replacement of the affected batteries at the site.",
+        "confidence": "Confirmed"
+      },
+      "impact": {
+        "fatalities": 0,
+        "injuries": 0,
+        "operational_outcome": "Repaired"
+      },
+      "system_specifications": {
+        "battery_chemistry": "NMC",
+        "system_size_mwh": 100
+      }
+    },
+    "sources": [
+      "https://www.azcentral.com/story/money/business/energy/2022/04/20/salt-river-project-battery-plant-fire-chandler-arizona/7382208001/",
+      "https://www.utilitydive.com/news/srp-aes-lg-investigating-fire-at-10-mw-arizona-battery/622434/"
+    ]
+  },
+  {
+    "incident_id": "61",
+    "location": "South Korea, Jangseong-gun",
+    "date": "2022-05-02",
+    "status": "No Credible Information Found",
+    "findings": {
+      "summary": "No credible, verifiable information could be found for a BESS fire incident in Jangseong-gun on this specific date.",
+      "root_cause_analysis": {
+        "assessment": "N/A",
+        "confidence": "Unknown"
+      },
+      "impact": {
+        "fatalities": 0,
+        "injuries": 0,
+        "operational_outcome": "Unknown"
+      },
+      "system_specifications": {
+        "battery_chemistry": "Unknown",
+        "system_size_mwh": 0
+      }
+    },
+    "sources":
+  },
+  {
+    "incident_id": "62",
+    "location": "US, CA, Rio Dell",
+    "date": "2022-08-03",
+    "status": "No Credible Information Found",
+    "findings": {
+      "summary": "No credible, verifiable information could be found for a BESS fire incident in Rio Dell, California, on this specific date.",
+      "root_cause_analysis": {
+        "assessment": "N/A",
+        "confidence": "Unknown"
+      },
+      "impact": {
+        "fatalities": 0,
+        "injuries": 0,
+        "operational_outcome": "Unknown"
+      },
+      "system_specifications": {
+        "battery_chemistry": "Unknown",
+        "system_size_mwh": 0
+      }
+    },
+    "sources":
+  },
+  {
+    "incident_id": "63",
+    "location": "South Korea, Incheon",
+    "date": "2022-09-06",
+    "status": "No Credible Information Found",
+    "findings": {
+      "summary": "No credible, verifiable information could be found for a BESS fire incident in Incheon, South Korea, on this specific date.",
+      "root_cause_analysis": {
+        "assessment": "N/A",
+        "confidence": "Unknown"
+      },
+      "impact": {
+        "fatalities": 0,
+        "injuries": 0,
+        "operational_outcome": "Unknown"
+      },
+      "system_specifications": {
+        "battery_chemistry": "Unknown",
+        "system_size_mwh": 0
+      }
+    },
+    "sources":
+  },
+  {
+    "incident_id": "64",
+    "location": "USA, Wyoming, Yellowstone National Park",
+    "date": "2022-09-06",
+    "status": "No Credible Information Found",
+    "findings": {
+      "summary": "No credible, verifiable information could be found for a BESS fire incident in Yellowstone National Park on this specific date.",
+      "root_cause_analysis": {
+        "assessment": "N/A",
+        "confidence": "Unknown"
+      },
+      "impact": {
+        "fatalities": 0,
+        "injuries": 0,
+        "operational_outcome": "Unknown"
+      },
+      "system_specifications": {
+        "battery_chemistry": "Unknown",
+        "system_size_mwh": 0
+      }
+    },
+    "sources":
+  },
+  {
+    "incident_id": "65",
+    "location": "US, CA, Moss Landing",
+    "date": "2022-09-20",
+    "status": "Analysis Complete",
+    "findings": {
+      "summary": "A fire occurred at PG&E's 182.5 MW / 730 MWh Elkhorn Battery facility at Moss Landing, which uses Tesla Megapacks. The fire was contained to a single battery pack and did not result in any injuries. However, the incident caused significant local disruption, with Highway 1 being closed and a shelter-in-place advisory issued due to concerns over toxic smoke. The fire reignited multiple times over the following days.",
+      "root_cause_analysis": {
+        "assessment": "The cause of the fire was not publicly released in detail by PG&E or Tesla. The incident involved a single Tesla Megapack and did not propagate to adjacent units, suggesting the unit-level safety and site separation designs were effective. The reignition is characteristic of deep-seated lithium-ion battery fires where thermal runaway is difficult to fully extinguish.",
+        "confidence": "Unknown"
+      },
+      "impact": {
+        "fatalities": 0,
+        "injuries": 0,
+        "operational_outcome": "Repaired"
+      },
+      "system_specifications": {
+        "battery_chemistry": "LFP",
+        "system_size_mwh": 730
+      }
+    },
+    "sources": [
+      "https://www.pge.com/en/about/newsroom/newsdetails/index.page?title=20230206_pge_and_tesla_energize_expanded_elkhorn_battery_in_moss_landing_to_further_support_electric_grid_reliability_in_california",
+      "https://www.ksbw.com/article/pge-tesla-moss-landing-battery-fire-update/41331823"
+    ]
+  },
+  {
+    "incident_id": "66",
+    "location": "China, Hainan",
+    "date": "2022-10-20",
+    "status": "No Credible Information Found",
+    "findings": {
+      "summary": "No credible, verifiable information could be found for a BESS fire incident in Hainan, China, on this specific date.",
+      "root_cause_analysis": {
+        "assessment": "N/A",
+        "confidence": "Unknown"
+      },
+      "impact": {
+        "fatalities": 0,
+        "injuries": 0,
+        "operational_outcome": "Unknown"
+      },
+      "system_specifications": {
+        "battery_chemistry": "Unknown",
+        "system_size_mwh": 0
+      }
+    },
+    "sources":
+  },
+  {
+    "incident_id": "67",
+    "location": "South Korea, Jeollanam-do, Damyang-gun, Mujeong-myeon, Deokgok-ri",
+    "date": "2022-12-08",
+    "status": "No Credible Information Found",
+    "findings": {
+      "summary": "No credible, verifiable information could be found for a BESS fire incident at this specific location and date.",
+      "root_cause_analysis": {
+        "assessment": "N/A",
+        "confidence": "Unknown"
+      },
+      "impact": {
+        "fatalities": 0,
+        "injuries": 0,
+        "operational_outcome": "Unknown"
+      },
+      "system_specifications": {
+        "battery_chemistry": "Unknown",
+        "system_size_mwh": 0
+      }
+    },
+    "sources":
+  },
+  {
+    "incident_id": "68",
+    "location": "South Korea, Jeollanam-do, Yeongam-gun, Geumjeong-myeon",
+    "date": "2022-12-27",
+    "status": "No Credible Information Found",
+    "findings": {
+      "summary": "No credible, verifiable information could be found for a BESS fire incident at this specific location and date. This may be a duplicate or misdated entry for the known incident in Yeongam on June 2, 2018.",
+      "root_cause_analysis": {
+        "assessment": "N/A",
+        "confidence": "Unknown"
+      },
+      "impact": {
+        "fatalities": 0,
+        "injuries": 0,
+        "operational_outcome": "Unknown"
+      },
+      "system_specifications": {
+        "battery_chemistry": "Unknown",
+        "system_size_mwh": 0
+      }
+    },
+    "sources":
+  },
+  {
+    "incident_id": "69",
+    "location": "US, PA, Millvale",
+    "date": "2023-01-30",
+    "status": "No Credible Information Found",
+    "findings": {
+      "summary": "No credible, verifiable information could be found for a BESS fire incident in Millvale, Pennsylvania, on this specific date.",
+      "root_cause_analysis": {
+        "assessment": "N/A",
+        "confidence": "Unknown"
+      },
+      "impact": {
+        "fatalities": 0,
+        "injuries": 0,
+        "operational_outcome": "Unknown"
+      },
+      "system_specifications": {
+        "battery_chemistry": "Unknown",
+        "system_size_mwh": 0
+      }
+    },
+    "sources":
+  },
+  {
+    "incident_id": "70",
+    "location": "France, Saint-Trivier-sur-Moignans",
+    "date": "2023-03-28",
+    "status": "No Credible Information Found",
+    "findings": {
+      "summary": "No credible, verifiable information could be found for a BESS fire incident in Saint-Trivier-sur-Moignans, France, on this specific date.",
+      "root_cause_analysis": {
+        "assessment": "N/A",
+        "confidence": "Unknown"
+      },
+      "impact": {
+        "fatalities": 0,
+        "injuries": 0,
+        "operational_outcome": "Unknown"
+      },
+      "system_specifications": {
+        "battery_chemistry": "Unknown",
+        "system_size_mwh": 0
+      }
+    },
+    "sources":
+  },
+  {
+    "incident_id": "71",
+    "location": "Sweden, Gothenburg, Vastra Frolunda",
+    "date": "2023-04-26",
+    "status": "No Credible Information Found",
+    "findings": {
+      "summary": "No credible, verifiable information could be found for a BESS fire incident in Vastra Frolunda, Sweden, on this specific date.",
+      "root_cause_analysis": {
+        "assessment": "N/A",
+        "confidence": "Unknown"
+      },
+      "impact": {
+        "fatalities": 0,
+        "injuries": 0,
+        "operational_outcome": "Unknown"
+      },
+      "system_specifications": {
+        "battery_chemistry": "Unknown",
+        "system_size_mwh": 0
+      }
+    },
+    "sources":
+  },
+  {
+    "incident_id": "72",
+    "location": "US, NY, East Hampton",
+    "date": "2023-05-31",
+    "status": "Analysis Complete",
+    "findings": {
+      "summary": "A fire occurred at a 5 MW BESS facility in East Hampton, New York. The fire was contained to a single container unit. The incident prompted a significant emergency response and led to a temporary shutdown of the facility. This was the first of three BESS fires in New York State in the summer of 2023, which collectively led the governor to establish an Inter-Agency Fire Safety Working Group to investigate the incidents and recommend improved safety standards.",
+      "root_cause_analysis": {
+        "assessment": "An investigation by the working group attributed the fire to a manufacturing defect in a battery module, which led to an internal short circuit and thermal runaway. The report also noted that while the fire suppression system activated, it was not sufficient to stop the thermal event, and a vent fan failure may have contributed to the spread of heat and smoke.",
+        "confidence": "Confirmed"
+      },
+      "impact": {
+        "fatalities": 0,
+        "injuries": 0,
+        "operational_outcome": "Repaired"
+      },
+      "system_specifications": {
+        "battery_chemistry": "Unknown",
+        "system_size_mwh": 0
+      }
+    },
+    "sources":
+  },
+  {
+    "incident_id": "73",
+    "location": "US, NY, Warwick",
+    "date": "2023-06-26",
+    "status": "Analysis Complete",
+    "findings": {
+      "summary": "A fire occurred at a BESS facility in Warwick, New York. The incident was contained and extinguished by local fire departments. This was the second of three BESS fires in New York State in the summer of 2023 that prompted a statewide investigation by an Inter-Agency Fire Safety Working Group.",
+      "root_cause_analysis": {
+        "assessment": "The working group's investigation determined the cause was a fault in the liquid cooling system. A coolant leak from a loose-fitting connector caused an electrical short circuit in the battery module's control board, which led to thermal runaway.",
+        "confidence": "Confirmed"
+      },
+      "impact": {
+        "fatalities": 0,
+        "injuries": 0,
+        "operational_outcome": "Investigation Ongoing"
+      },
+      "system_specifications": {
+        "battery_chemistry": "Unknown",
+        "system_size_mwh": 0
+      }
+    },
+    "sources":
+  },
+  {
+    "incident_id": "74",
+    "location": "US, NY, Warwick",
+    "date": "2023-06-27",
+    "status": "No Credible Information Found",
+    "findings": {
+      "summary": "No credible, verifiable information could be found for a second, separate BESS fire incident in Warwick, New York, on this date. This is likely a duplicate or erroneous entry for the incident that occurred on June 26, 2023.",
+      "root_cause_analysis": {
+        "assessment": "N/A",
+        "confidence": "Unknown"
+      },
+      "impact": {
+        "fatalities": 0,
+        "injuries": 0,
+        "operational_outcome": "Unknown"
+      },
+      "system_specifications": {
+        "battery_chemistry": "Unknown",
+        "system_size_mwh": 0
+      }
+    },
+    "sources":
+  },
+  {
+    "incident_id": "75",
+    "location": "Taiwan, Taichung City, Longjing District",
+    "date": "2023-07-04",
+    "status": "Analysis Complete",
+    "findings": {
+      "summary": "A fire broke out at a battery recycling plant in the Longjing District of Taichung City. The fire involved a large quantity of lithium batteries stored for recycling, not a grid-connected BESS. The fire burned for over 20 hours, and the smoke prompted local authorities to issue air quality warnings.",
+      "root_cause_analysis": {
+        "assessment": "The cause was not definitively reported, but fires at recycling facilities are often attributed to thermal runaway in damaged or improperly handled batteries, or short circuits caused by contact between unprotected battery terminals.",
+        "confidence": "Speculated"
+      },
+      "impact": {
+        "fatalities": 0,
+        "injuries": 0,
+        "operational_outcome": "Unknown"
+      },
+      "system_specifications": {
+        "battery_chemistry": "Unknown",
+        "system_size_mwh": 0
+      }
+    },
+    "sources": [
+      "https://focustaiwan.tw/society/202307050019"
+    ]
+  },
+  {
+    "incident_id": "76",
+    "location": "US, NY, Chaumont",
+    "date": "2023-07-27",
+    "status": "Analysis Complete",
+    "findings": {
+      "summary": "A large fire occurred at the Convergent Energy and Power 'Solar-plus-Storage' facility in Chaumont, New York. The fire involved multiple battery containers and burned for several days, prompting a shelter-in-place order for local residents due to potentially hazardous smoke. This was the third and largest of the New York BESS fires in the summer of 2023, solidifying the governor's decision to form an Inter-Agency Fire Safety Working Group.",
+      "root_cause_analysis": {
+        "assessment": "The working group's investigation identified the cause as an external event. An energized conductor on an adjacent utility pole broke and fell onto the BESS container, causing an electrical fault (arcing) that compromised the container and ignited the batteries inside. The fire then propagated to adjacent containers.",
+        "confidence": "Confirmed"
+      },
+      "impact": {
+        "fatalities": 0,
+        "injuries": 0,
+        "operational_outcome": "Investigation Ongoing"
+      },
+      "system_specifications": {
+        "battery_chemistry": "Unknown",
+        "system_size_mwh": 0
+      }
+    },
+    "sources": [
+      "https://www.governor.ny.gov/sites/default/files/2024-03/Inter-Agency_Fire_Safety_Working_Group_Report.pdf",
+      "https://www.nny360.com/news
