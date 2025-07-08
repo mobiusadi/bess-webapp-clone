@@ -1,34 +1,59 @@
-import React, { useState } from 'react';
+
+
+
+
+import React, { useState, useEffect } from 'react';
 import LeafletMap from './components/MapContainer'; 
 import IncidentList from './components/IncidentList';
 import FilterControls from './components/FilterControls';
-import incidentData from './data/incidents.json';
+import { createClient } from '@supabase/supabase-js';
 import './App.css';
-// NEW: Import the filter icon
 import filterIcon from './assets/icon-filter.png';
 
-const sortedIncidents = incidentData.sort((a, b) => {
-  const dateA = new Date(a.event_date.replace(' ', 'T'));
-  const dateB = new Date(b.event_date.replace(' ', 'T'));
-  return isNaN(dateA.getTime()) ? 1 : isNaN(dateB.getTime()) ? -1 : dateB - dateA;
-});
+/// --- Initialize the Supabase Client ---
+// Add your specific Supabase URL and public anon key here
+const supabaseUrl = 'https://yqxtmjblfluwwdkolinn.supabase.co';
+const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InlxeHRtamJsZmx1d3dka29saW5uIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTE2NTM5MzUsImV4cCI6MjA2NzIyOTkzNX0.OWEYSHvxAtTo6Decm_r-FSc_zfXwLFlfgQ_cMpRbIXQ';
+const supabase = createClient(supabaseUrl, supabaseKey);
 
 function App() {
-  const [incidents] = useState(sortedIncidents);
+  // State now starts as empty. It will be filled with live data.
+  const [incidents, setIncidents] = useState([]);
   const [selectedIncident, setSelectedIncident] = useState(null);
+  const [isLoading, setIsLoading] = useState(true); // A new state to track loading
   
   const [isFilterVisible, setIsFilterVisible] = useState(false);
   const [fieldVisibility, setFieldVisibility] = useState({
     country: true,
     year: true,
     capacity_mw: true,
-    capacity_mwh: true,
+    capacity_mwh: false,
     description: true,
     battery_modules: false,
-    enclosure_type: false,
-    failed_element: false,
     root_cause: false,
   });
+
+  // --- NEW: This useEffect hook fetches data from Supabase when the app loads ---
+  useEffect(() => {
+    const getIncidents = async () => {
+      setIsLoading(true); // Tell the app we are loading data
+
+      // Fetch all rows from your 'incidents' table, ordered by date
+      let { data, error } = await supabase
+        .from('incidents')
+        .select('*')
+        .order('event_date', { ascending: false });
+
+      if (error) {
+        console.error("Error fetching incidents from Supabase:", error);
+      } else if (data) {
+        setIncidents(data); // Put the loaded data into our state
+      }
+      setIsLoading(false); // Tell the app we are done loading
+    };
+
+    getIncidents();
+  }, []); // The empty array [] ensures this runs only once.
 
   const handleVisibilityChange = (field) => {
     setFieldVisibility(prevVisibility => ({
@@ -41,10 +66,8 @@ function App() {
     <div className="App">
       <header className="App-header">
         <h1>BESS Incident Map</h1>
-        {/* The filter logic is now back in the header */}
         <div className="header-controls">
           <button onClick={() => setIsFilterVisible(!isFilterVisible)} className="filter-toggle-button">
-            {/* Use the imported icon instead of text */}
             <img src={filterIcon} alt="Filters" />
           </button>
           {isFilterVisible && (
@@ -57,21 +80,28 @@ function App() {
       </header>
 
       <main className="App-main">
-        <div className="list-container">
-          <IncidentList
-            incidents={incidents}
-            selectedIncident={selectedIncident}
-            onIncidentSelect={setSelectedIncident}
-            fieldVisibility={fieldVisibility}
-          />
-        </div>
-        <div className="map-container">
-          <LeafletMap
-            incidents={incidents}
-            selectedIncident={selectedIncident}
-            onMarkerClick={setSelectedIncident}
-          />
-        </div>
+        {/* If the app is loading, show a message. Otherwise, show the content. */}
+        {isLoading ? (
+          <p className="loading-message">Loading incident data from database...</p>
+        ) : (
+          <>
+            <div className="list-container">
+              <IncidentList
+                incidents={incidents}
+                selectedIncident={selectedIncident}
+                onIncidentSelect={setSelectedIncident}
+                fieldVisibility={fieldVisibility}
+              />
+            </div>
+            <div className="map-container">
+              <LeafletMap
+                incidents={incidents}
+                selectedIncident={selectedIncident}
+                onMarkerClick={setSelectedIncident}
+              />
+            </div>
+          </>
+        )}
       </main>
     </div>
   );

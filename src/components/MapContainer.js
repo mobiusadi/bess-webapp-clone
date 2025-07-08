@@ -4,13 +4,15 @@ import L from 'leaflet';
 
 function ChangeView({ center, zoom }) {
   const map = useMap();
-  map.flyTo(center, zoom);
+  if (center && typeof center[0] === 'number' && typeof center[1] === 'number') {
+    map.flyTo(center, zoom);
+  }
   return null;
 }
 
 const calculateMarkerRadius = (mw) => {
   if (!mw || typeof mw !== 'number' || mw <= 0) {
-    return 6;
+    return 6; 
   }
   return 6 + Math.log(mw) * 2;
 };
@@ -19,9 +21,16 @@ function LeafletMap({ incidents, selectedIncident, onMarkerClick }) {
   const [activeIncident, setActiveIncident] = useState(null);
   const defaultPosition = [30, 0];
 
+  // --- NEW DEBUGGING LOG ---
+  // Let's inspect the very first incident when the data arrives
+  if (incidents.length > 0) {
+    console.log("Inspecting first incident for map:", incidents[0]);
+    console.log("Type of latitude:", typeof incidents[0].latitude);
+    console.log("Type of longitude:", typeof incidents[0].longitude);
+  }
+
   return (
     <MapContainer center={defaultPosition} zoom={2} style={{ height: '100%', width: '100%' }}>
-      {/* FINAL FIX: Using the official, standard OpenStreetMap tile layer */}
       <TileLayer
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -32,6 +41,7 @@ function LeafletMap({ incidents, selectedIncident, onMarkerClick }) {
       )}
 
       {incidents.map(incident => {
+        // This defensive check is still important
         if (typeof incident.latitude !== 'number' || typeof incident.longitude !== 'number') {
           return null;
         }
