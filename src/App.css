@@ -124,3 +124,40 @@
   .App-header h1 { font-size: 1.1rem; }
   .App-main { height: calc(100vh - 40px); }
 }
+/* === Header Navigation Styles === */
+.App-header nav {
+  display: flex;
+  gap: 1rem;
+}
+.App-header nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 8px 12px;
+  border-radius: 6px;
+  transition: background-color 0.2s;
+}
+.App-header nav a:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* === Dashboard Page Styles === */
+.dashboard-page {
+  width: 100%;
+  padding: 2rem;
+  overflow-y: auto;
+}
+.dashboard-controls {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+.dashboard-controls label {
+  margin-right: 1rem;
+  font-weight: 500;
+}
+.dashboard-controls select {
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
