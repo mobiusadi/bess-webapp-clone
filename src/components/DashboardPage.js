@@ -1,67 +1,51 @@
 import React, { useState, useMemo } from 'react';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
-// This is the final, most robust version of the data processing function
+// A new, more robust data processing function
 const processData = (incidents, category) => {
-  // Define the specific order for our custom age bands
-  const ageBandOrder = [
-    "Less than 1 Year", "1 to 2 Years", "3 to 4 Years",
-    "5+ Years", "Unknown"
-  ];
+  // This object will store our counts, e.g., { "USA": 20, "UK": 10 }
+  const counts = {};
 
-  const counts = incidents.reduce((acc, incident) => {
-    let key;
+  // Loop through every incident
+  for (const incident of incidents) {
+    let key = 'Unknown'; // Default key if data is missing
     const value = incident[category];
 
-    // Use a switch statement for clarity to handle each special case
-    switch (category) {
-      case 'capacity_mw':
-        key = (typeof value === 'number' && !isNaN(value))
-          ? `${Math.floor(value / 10) * 10} - ${Math.floor(value / 10) * 10 + 10} MW`
-          : 'Unknown';
-        break;
-      case 'capacity_mwh':
-        key = (typeof value === 'number' && !isNaN(value))
-          ? `${Math.floor(value / 100) * 100} - ${Math.floor(value / 100) * 100 + 100} MWh`
-          : 'Unknown';
-        break;
-      case 'system_age_yr':
-        if (typeof value !== 'number' || isNaN(value)) {
-          key = 'Unknown';
-        } else if (value < 1) {
-          key = "Less than 1 Year";
-        } else if (value >= 1 && value < 3) {
-          key = "1 to 2 Years";
-        } else if (value >= 3 && value < 5) {
-          key = "3 to 4 Years";
-        } else {
-          key = "5+ Years";
-        }
-        break;
-      // THIS IS THE FIX: We put the year parsing logic back in
-      case 'year':
-        const date = incident.event_date ? new Date(String(incident.event_date).replace(' ', 'T')) : null;
-        key = (date && !isNaN(date.getTime())) ? date.getFullYear() : 'Unknown';
-        break;
-      default:
-        // This handles all other text categories like 'country' and 'integrator'
-        key = value || 'Unknown';
-        break;
+    // This block determines the key based on the selected category
+    if (category === 'year' && incident.event_date) {
+      const date = new Date(String(incident.event_date).replace(' ', 'T'));
+      if (!isNaN(date.getTime())) {
+        key = date.getFullYear();
+      }
+    } else if (category === 'system_age_yr' && typeof value === 'number') {
+      if (value < 1) key = "0-1 Years";
+      else if (value >= 1 && value < 3) key = "1-2 Years";
+      else if (value >= 3 && value < 5) key = "3-4 Years";
+      else key = "5+ Years";
+    } else if (category === 'capacity_mw' && typeof value === 'number') {
+      const band = Math.floor(value / 10) * 10;
+      key = `${band} - ${band + 10} MW`;
+    } else if (category === 'capacity_mwh' && typeof value === 'number') {
+      const band = Math.floor(value / 100) * 100;
+      key = `${band} - ${band + 100} MWh`;
+    } else if (value) {
+      // This handles all other text-based categories like 'country'
+      key = value;
     }
-
-    acc[String(key)] = (acc[String(key)] || 0) + 1;
-    return acc;
-  }, {});
-
-  const processedData = Object.entries(counts)
-    .map(([name, value]) => ({ name, incidents: value }));
     
-  // Sort the data correctly based on the category
-  if (category === 'system_age_yr') {
-    processedData.sort((a, b) => ageBandOrder.indexOf(a.name) - ageBandOrder.indexOf(b.name));
-  } else if (['capacity_mw', 'capacity_mwh', 'year'].includes(category)) {
+    // Increment the count for the determined key
+    counts[key] = (counts[key] || 0) + 1;
+  }
+
+  // Convert the counts object into an array for the chart
+  const processedData = Object.entries(counts).map(([name, value]) => ({ name, incidents: value }));
+
+  // Sort the data correctly
+  if (['year', 'capacity_mw', 'capacity_mwh', 'system_age_yr'].includes(category)) {
+    // Sort numeric/banded categories by their name/band
     processedData.sort((a, b) => parseFloat(a.name) - parseFloat(b.name));
   } else {
+    // Sort text categories by the number of incidents
     processedData.sort((a, b) => b.incidents - a.incidents);
   }
 
@@ -71,20 +55,11 @@ const processData = (incidents, category) => {
 function DashboardPage({ incidents }) {
   const [category, setCategory] = useState('country');
   
-  // NEW: Added all your requested categories to the dropdown options
+  // The full list of options for the user to choose from
   const options = [
-    'country', 
-    'year', 
-    'capacity_mw', 
-    'capacity_mwh', 
-    'system_age_yr', 
-    'battery_modules', 
-    'integrator',
-    'enclosure_type',
-    'state_during_accident',
-    'installation',
-    'application',
-    'root_cause'
+    'country', 'year', 'capacity_mw', 'capacity_mwh', 'system_age_yr', 
+    'battery_modules', 'integrator', 'enclosure_type', 
+    'state_during_accident', 'installation', 'application', 'root_cause'
   ];
 
   const chartData = useMemo(() => processData(incidents, category), [incidents, category]);
@@ -106,6 +81,7 @@ function DashboardPage({ incidents }) {
           ))}
         </select>
       </div>
+
       <ResponsiveContainer width="95%" height={500}>
         <BarChart
           data={chartData}
