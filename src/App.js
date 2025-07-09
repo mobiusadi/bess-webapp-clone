@@ -6,6 +6,8 @@ import IncidentList from './components/IncidentList';
 import DashboardPage from './components/DashboardPage';
 import AdminPage from './components/AdminPage';
 import EditIncidentForm from './components/EditIncidentForm';
+// THIS IS THE FIX: We need to import the FilterControls component to use it
+import FilterControls from './components/FilterControls'; 
 import { createClient } from '@supabase/supabase-js';
 import './App.css';
 
@@ -13,16 +15,40 @@ const supabaseUrl = process.env.REACT_APP_SUPABASE_URL;
 const supabaseKey = process.env.REACT_APP_SUPABASE_ANON_KEY;
 const supabase = createClient(supabaseUrl, supabaseKey);
 
-// MapView component now correctly receives and passes all necessary props
-function MapView({ incidents, selectedIncident, setSelectedIncident, fieldVisibility }) {
+// The MapView component now correctly manages all state related to the map page
+function MapView({ incidents }) {
+  const [selectedIncident, setSelectedIncident] = useState(null);
+  const [isFilterVisible, setIsFilterVisible] = useState(false);
+  const [fieldVisibility, setFieldVisibility] = useState({
+    country: true, year: true, capacity_mw: true, capacity_mwh: true,
+    system_age_yr: true, description: true, battery_modules: false, root_cause: false,
+    integrator: false, enclosure_type: false, state_during_accident: false, 
+    installation: false, application: false,
+  });
+
+  const handleVisibilityChange = (field) => {
+    setFieldVisibility(prevVisibility => ({ ...prevVisibility, [field]: !prevVisibility[field] }));
+  };
+  
   return(
     <>
+      <div className="filter-lozenge-container">
+          <button onClick={() => setIsFilterVisible(!isFilterVisible)} className="filter-lozenge-button">
+            Filters
+          </button>
+          {isFilterVisible && (
+            <FilterControls 
+              visibility={fieldVisibility}
+              onVisibilityChange={handleVisibilityChange}
+            />
+          )}
+      </div>
       <div className="list-container">
         <IncidentList
           incidents={incidents}
           selectedIncident={selectedIncident}
           onIncidentSelect={setSelectedIncident}
-          fieldVisibility={fieldVisibility} // This prop was missing before
+          fieldVisibility={fieldVisibility}
         />
       </div>
       <div className="map-container">
@@ -40,13 +66,6 @@ function MapView({ incidents, selectedIncident, setSelectedIncident, fieldVisibi
 function App() {
   const [incidents, setIncidents] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [selectedIncident, setSelectedIncident] = useState(null); // Moved state here
-  
-  const [fieldVisibility, setFieldVisibility] = useState({
-    country: true, year: true, capacity_mw: true,
-    capacity_mwh: true, system_age_yr: true, description: true,
-    battery_modules: false, root_cause: false,
-  });
   
   useEffect(() => {
     const getIncidents = async () => {
@@ -75,14 +94,7 @@ function App() {
           <p className="loading-message">Loading incident data...</p>
         ) : (
           <Routes>
-            <Route path="/" element={
-              <MapView 
-                incidents={incidents}
-                selectedIncident={selectedIncident}
-                setSelectedIncident={setSelectedIncident}
-                fieldVisibility={fieldVisibility}
-              />
-            } />
+            <Route path="/" element={<MapView incidents={incidents} />} />
             <Route path="/dashboard" element={<DashboardPage incidents={incidents} />} />
             <Route path="/admin" element={<AdminPage incidents={incidents} />} />
             <Route path="/admin/edit/:id" element={<EditIncidentForm />} />
