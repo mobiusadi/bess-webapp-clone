@@ -60,6 +60,12 @@
 .tag-power { background-color: #ffc107; color: #212529; }
 .tag-energy { background-color: #fd7e14; }
 
+/* Add this new rule with your other .tag styles */
+
+.tag-age {
+  background-color: #dc3545; /* Bootstrap danger red */
+}
+
 /* === Header Filter Controls === */
 .header-controls { 
   position: relative; 
