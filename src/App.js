@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import { Routes, Route, Link } from 'react-router-dom'; 
+import { Routes, Route, Link } from 'react-router-dom';
 
-import LeafletMap from './components/MapContainer'; 
+import LeafletMap from './components/MapContainer';
 import IncidentList from './components/IncidentList';
 import DashboardPage from './components/DashboardPage';
 import FilterControls from './components/FilterControls';
 import { createClient } from '@supabase/supabase-js';
 import './App.css';
-// The unused filterIcon import has been removed
 
-const supabaseUrl = 'YOUR_SUPABASE_URL_HERE';
-const supabaseKey = 'YOUR_SUPABASE_ANON_KEY_HERE';
+// Pull Supabase URL and Key from environment variables
+const supabaseUrl = process.env.REACT_APP_SUPABASE_URL;
+const supabaseKey = process.env.REACT_APP_SUPABASE_ANON_KEY;
 const supabase = createClient(supabaseUrl, supabaseKey);
 
 // A new component for just the map and list view
@@ -21,14 +21,14 @@ function MapView({ incidents }) {
   const [fieldVisibility, setFieldVisibility] = useState({
     country: true, year: true, capacity_mw: true, capacity_mwh: true,
     system_age_yr: true, description: true, battery_modules: false, root_cause: false,
-    integrator: false, enclosure_type: false, state_during_accident: false, 
-    installation: false, application: false, 
+    integrator: false, enclosure_type: false, state_during_accident: false,
+    installation: false, application: false,
   });
 
   const handleVisibilityChange = (field) => {
     setFieldVisibility(prevVisibility => ({ ...prevVisibility, [field]: !prevVisibility[field] }));
   };
-  
+
   return(
     <>
       {/* The filter button is now part of the MapView */}
@@ -37,7 +37,7 @@ function MapView({ incidents }) {
             Filters
           </button>
           {isFilterVisible && (
-            <FilterControls 
+            <FilterControls
               visibility={fieldVisibility}
               onVisibilityChange={handleVisibilityChange}
             />
@@ -66,7 +66,7 @@ function MapView({ incidents }) {
 function App() {
   const [incidents, setIncidents] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  
+
   useEffect(() => {
     const getIncidents = async () => {
       setIsLoading(true);
