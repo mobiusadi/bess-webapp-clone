@@ -271,3 +271,16 @@
   margin-top: 1rem;
   font-weight: bold;
 }
+.admin-actions {
+  margin-bottom: 2rem;
+  text-align: left;
+}
+
+.create-button {
+  background-color: #28a745;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+}

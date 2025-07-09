@@ -1,13 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { createClient } from '@supabase/supabase-js';
+// THIS IS THE FIX: Import the single client from our central file
+import { supabase } from '../supabaseClient';
 
-// Initialize Supabase Client
-const supabaseUrl = process.env.REACT_APP_SUPABASE_URL;
-const supabaseKey = process.env.REACT_APP_SUPABASE_ANON_KEY;
-const supabase = createClient(supabaseUrl, supabaseKey);
-
-// A list of all fields we want to make editable in the form
 const EDITABLE_FIELDS = [
   'location', 'country', 'event_date', 'description', 
   'capacity_mw', 'capacity_mwh', 'system_age_yr', 
@@ -17,26 +12,21 @@ const EDITABLE_FIELDS = [
   'source_url_1', 'source_url_2', 'source_url_3',
   'image_url_1', 'image_url_2', 'image_url_3',
   'fatalities', 'injuries', 'other_notes'
-  // Add any other columns from your Supabase table here
 ];
 
-function EditIncidentForm() {
+const NUMERIC_FIELDS = new Set(['capacity_mw', 'capacity_mwh', 'system_age_yr', 'fatalities', 'injuries']);
+
+function EditIncidentForm({ onSave }) {
   const { id } = useParams();
   const navigate = useNavigate();
   const [incident, setIncident] = useState(null);
   const [message, setMessage] = useState('');
   const [loading, setLoading] = useState(true);
 
-  // Fetch the specific incident's data when the component loads
   useEffect(() => {
     const fetchIncident = async () => {
       setLoading(true);
-      const { data, error } = await supabase
-        .from('incidents')
-        .select('*')
-        .eq('id', id)
-        .single();
-
+      const { data, error } = await supabase.from('incidents').select('*').eq('id', id).single();
       if (error) {
         setMessage(`Error fetching incident: ${error.message}`);
       } else {
@@ -47,34 +37,28 @@ function EditIncidentForm() {
     fetchIncident();
   }, [id]);
 
-  // Handle changes to any form input
   const handleChange = (e) => {
-    const { name, value, type } = e.target;
-    // Handle number inputs correctly
-    const newValue = type === 'number' ? parseFloat(value) || 0 : value;
+    const { name, value } = e.target;
+    const newValue = NUMERIC_FIELDS.has(name) ? (parseFloat(value) || null) : value;
     setIncident(prev => ({ ...prev, [name]: newValue }));
   };
 
-  // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
     setMessage('Saving...');
 
-    // Dynamically create an object with only the editable fields to update
     const updateData = {};
     for (const field of EDITABLE_FIELDS) {
       updateData[field] = incident[field];
     }
     
-    const { error } = await supabase
-      .from('incidents')
-      .update(updateData)
-      .eq('id', id);
+    const { error } = await supabase.from('incidents').update(updateData).eq('id', id);
 
     if (error) {
       setMessage(`Error updating incident: ${error.message}`);
     } else {
       setMessage('Incident saved successfully!');
+      if (onSave) onSave();
       setTimeout(() => navigate('/admin'), 1500);
     }
   };
@@ -87,25 +71,27 @@ function EditIncidentForm() {
       <h2>Editing: {incident.location}</h2>
       <form onSubmit={handleSubmit} className="edit-form">
         
-        {/* Dynamically create an input for each editable field */}
         {EDITABLE_FIELDS.map(field => {
             const value = incident[field] || '';
-            let inputType = 'text';
-            if (typeof value === 'number' || field.includes('_mw') || field.includes('_mwh') || field.includes('age') || field.includes('fatalities') || field.includes('injuries')) {
-                inputType = 'number';
-            } else if (field.includes('url')) {
-                inputType = 'url';
-            } else if (field === 'event_date') {
-                inputType = 'datetime-local';
-            }
+            const inputType = NUMERIC_FIELDS.has(field) ? 'number' : field.includes('url') ? 'url' : 'text';
             
+            let displayValue = value;
+            if (field === 'event_date' && value) {
+                // Check if it's already in the correct format for the input
+                const d = new Date(value);
+                if (!isNaN(d.getTime())) {
+                    // Format to 'YYYY-MM-DDTHH:mm'
+                    displayValue = d.toISOString().slice(0, 16);
+                }
+            }
+
             return (
                 <React.Fragment key={field}>
                     <label>{field.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase())}:</label>
                     <input 
                         type={inputType}
                         name={field} 
-                        value={value} 
+                        value={displayValue} 
                         onChange={handleChange} 
                         step={inputType === 'number' ? 'any' : undefined}
                     />
