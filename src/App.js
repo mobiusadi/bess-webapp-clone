@@ -7,24 +7,28 @@ import DashboardPage from './components/DashboardPage';
 import AdminPage from './components/AdminPage';
 import EditIncidentForm from './components/EditIncidentForm';
 import AddIncidentForm from './components/AddIncidentForm';
-import { supabase } from './supabaseClient';
+import { supabase } from './supabaseClient'; // We use our central client
 import './App.css';
+// THIS IS THE FIX: We need to import the FilterControls component to use it
+import FilterControls from './components/FilterControls'; 
 
-// The MapView component is a clean way to group the main page's logic
+
+// The MapView component manages state for the main map/list view
 function MapView({ incidents, onSave }) {
   const [selectedIncident, setSelectedIncident] = useState(null);
-  // Filter state and logic now lives here, specific to this view
   const [isFilterVisible, setIsFilterVisible] = useState(false);
   const [fieldVisibility, setFieldVisibility] = useState({
     country: true, year: true, capacity_mw: true,
     capacity_mwh: true, system_age_yr: true, description: true,
     battery_modules: false, root_cause: false,
+    integrator: false, enclosure_type: false,
+    state_during_accident: false, installation: false, application: false,
   });
 
   const handleVisibilityChange = (field) => {
     setFieldVisibility(prev => ({ ...prev, [field]: !prev[field] }));
   };
-
+  
   return(
     <>
       <div className="filter-lozenge-container">
@@ -79,7 +83,6 @@ function App() {
         <h1>BESS Incident Map</h1>
         <nav>
           <Link to="/">Map View</Link>
-          {/* THIS IS THE FIX: Changed </A> to </Link> */}
           <Link to="/dashboard">Dash</Link>
           <Link to="/admin">Admin</Link>
         </nav>
