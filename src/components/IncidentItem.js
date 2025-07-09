@@ -1,30 +1,20 @@
 import React from 'react';
 import ResourceLinkParser from './ResourceLinkParser';
 
+// Helper function to format keys
 const formatKey = (key) => {
   return key.replace(/_/g, ' ').replace(/\b\w/g, char => char.toUpperCase());
 };
 
+// A list of keys we handle in a special way to avoid duplicating them
 const explicitlyHandledKeys = new Set([
-  'id', 'latitude', 'longitude', 'image_url', 'location', 'description', 
-  'country', 'year', 'event_date', 'capacity_mw', 'capacity_mwh', 'fatalities', 'injuries',
-  'root_cause', 'additional_resources', 'system_age_yr' // Add system_age_yr to prevent duplication
+  'id', 'latitude', 'longitude', 'location', 'description', 
+  'country', 'year', 'event_date', 'capacity_mw', 'capacity_mwh', 'system_age_yr',
+  'additional_resources', 'image_url_1', 'image_url_2', 'image_url_3'
 ]);
-
-// NEW: A helper function to determine the age band
-const getAgeBand = (age) => {
-  if (typeof age !== 'number' || isNaN(age)) return null;
-  if (age < 1) return '< 1yr';
-  if (age < 2) return '1-2yr';
-  if (age < 3) return '2-3yr';
-  if (age < 4) return '3-4yr';
-  if (age < 5) return '4-5yr';
-  return '5+ yr';
-};
 
 function IncidentItem({ incident, isSelected, onClick, fieldVisibility }) {
   const year = incident.event_date ? new Date(String(incident.event_date).replace(' ', 'T')).getFullYear() : null;
-  // Get the age band for this incident
   const ageBand = getAgeBand(incident.system_age_yr);
 
   return (
@@ -32,9 +22,11 @@ function IncidentItem({ incident, isSelected, onClick, fieldVisibility }) {
       className={`incident-item ${isSelected ? 'selected expanded' : ''}`}
       onClick={onClick}
     >
-      {isSelected && incident.image_url && (
+      {/* --- THIS IS THE FIX --- */}
+      {/* When the card is selected, AND an image_url_1 exists, show the image */}
+      {isSelected && incident.image_url_1 && (
         <img 
-          src={incident.image_url} 
+          src={incident.image_url_1} 
           alt={`Incident at ${incident.location}`} 
           className="incident-image" 
         />
@@ -46,8 +38,6 @@ function IncidentItem({ incident, isSelected, onClick, fieldVisibility }) {
           {(fieldVisibility.year || isSelected) && year && <span className="tag tag-year">{year}</span>}
           {(fieldVisibility.capacity_mw || isSelected) && incident.capacity_mw && <span className="tag tag-power">{incident.capacity_mw} MW</span>}
           {(fieldVisibility.capacity_mwh || isSelected) && incident.capacity_mwh && <span className="tag tag-energy">{incident.capacity_mwh} MWh</span>}
-          
-          {/* NEW: Conditionally render the new age tag */}
           {(fieldVisibility.system_age_yr || isSelected) && ageBand && <span className="tag tag-age">{ageBand}</span>}
         </div>
         
@@ -89,5 +79,16 @@ function IncidentItem({ incident, isSelected, onClick, fieldVisibility }) {
     </div>
   );
 }
+
+// We need to move the getAgeBand function outside or keep it inside
+function getAgeBand(age) {
+  if (typeof age !== 'number' || isNaN(age)) return null;
+  if (age < 1) return '< 1yr';
+  if (age < 2) return '1-2yr';
+  if (age < 3) return '2-3yr';
+  if (age < 4) return '4-5yr';
+  if (age < 5) return '4-5yr'; // Corrected this band
+  return '5+ yr';
+};
 
 export default IncidentItem;
