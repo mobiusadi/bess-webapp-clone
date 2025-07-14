@@ -1,65 +1,17 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { Routes, Route, Link } from 'react-router-dom'; 
 
-import LeafletMap from './components/MapContainer'; 
-import IncidentList from './components/IncidentList';
+import MapView from './components/MapView';
 import DashboardPage from './components/DashboardPage';
 import AdminPage from './components/AdminPage';
 import EditIncidentForm from './components/EditIncidentForm';
 import AddIncidentForm from './components/AddIncidentForm';
-import { supabase } from './supabaseClient'; // We use our central client
+import GlobeView from './components/GlobeView';
+import CardGridView from './components/CardGridView';
+import DataTablePage from './components/DataTablePage';
+import PivotTableView from './components/PivotTableView';
+import { supabase } from './supabaseClient';
 import './App.css';
-// THIS IS THE FIX: We need to import the FilterControls component to use it
-import FilterControls from './components/FilterControls'; 
-
-
-// The MapView component manages state for the main map/list view
-function MapView({ incidents, onSave }) {
-  const [selectedIncident, setSelectedIncident] = useState(null);
-  const [isFilterVisible, setIsFilterVisible] = useState(false);
-  const [fieldVisibility, setFieldVisibility] = useState({
-    country: true, year: true, capacity_mw: true,
-    capacity_mwh: true, system_age_yr: true, description: true,
-    battery_modules: false, root_cause: false,
-    integrator: false, enclosure_type: false,
-    state_during_accident: false, installation: false, application: false,
-  });
-
-  const handleVisibilityChange = (field) => {
-    setFieldVisibility(prev => ({ ...prev, [field]: !prev[field] }));
-  };
-  
-  return(
-    <>
-      <div className="filter-lozenge-container">
-        <button onClick={() => setIsFilterVisible(!isFilterVisible)} className="filter-lozenge-button">
-          Filters
-        </button>
-        {isFilterVisible && (
-          <FilterControls 
-            visibility={fieldVisibility}
-            onVisibilityChange={handleVisibilityChange}
-          />
-        )}
-      </div>
-      <div className="list-container">
-        <IncidentList
-          incidents={incidents}
-          selectedIncident={selectedIncident}
-          onIncidentSelect={setSelectedIncident}
-          fieldVisibility={fieldVisibility}
-        />
-      </div>
-      <div className="map-container">
-        <LeafletMap
-          incidents={incidents}
-          selectedIncident={selectedIncident}
-          onMarkerClick={setSelectedIncident}
-        />
-      </div>
-    </>
-  );
-}
 
 function App() {
   const [incidents, setIncidents] = useState([]);
@@ -82,27 +34,31 @@ function App() {
       <header className="App-header">
         <h1>BESS Incident Map</h1>
         <nav>
-          <Link to="/">Map View</Link>
+          <Link to="/">Map</Link>
+          <Link to="/globe">Globe</Link>
+          <Link to="/grid">Grid</Link>
+          <Link to="/table">Table</Link>
+          <Link to="/pivot">Pivot</Link>
           <Link to="/dashboard">Dash</Link>
           <Link to="/admin">Admin</Link>
         </nav>
       </header>
-
-      <main className="App-main">
-        {isLoading ? (
-          <p className="loading-message">Loading incident data...</p>
-        ) : (
+      <div className="main-content">
+        {isLoading ? ( <p className="loading-message">Loading...</p> ) : (
           <Routes>
-            <Route path="/" element={<MapView incidents={incidents} onSave={getIncidents} />} />
+            <Route path="/" element={<MapView incidents={incidents} />} />
+            <Route path="/globe" element={<GlobeView incidents={incidents} />} />
+            <Route path="/grid" element={<CardGridView incidents={incidents} />} />
+            <Route path="/table" element={<DataTablePage incidents={incidents} />} />
+            <Route path="/pivot" element={<PivotTableView incidents={incidents} />} />
             <Route path="/dashboard" element={<DashboardPage incidents={incidents} />} />
             <Route path="/admin" element={<AdminPage incidents={incidents} />} />
             <Route path="/admin/edit/:id" element={<EditIncidentForm onSave={getIncidents} />} />
             <Route path="/admin/new" element={<AddIncidentForm onSave={getIncidents} />} />
           </Routes>
         )}
-      </main>
+      </div>
     </div>
   );
 }
-
 export default App;
