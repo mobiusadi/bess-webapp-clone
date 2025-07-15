@@ -1,3 +1,4 @@
+// src/components/CardGridView.js
 import React, { useState } from 'react';
 import IncidentItem from './IncidentItem';
 
@@ -18,11 +19,17 @@ function CardGridView({ incidents }) {
             incident={incident}
             isSelected={expandedId === incident.id}
             onClick={() => handleCardClick(incident.id)}
-            fieldVisibility={{}}
+            // THIS IS THE FIX: We pass a 'true' for all fields
+            // so the tags are always visible in the grid view.
+            fieldVisibility={{
+              country: true, year: true, capacity_mw: true,
+              capacity_mwh: true, system_age_yr: true
+            }} 
           />
         ))}
       </div>
     </div>
   );
 }
+
 export default CardGridView;
