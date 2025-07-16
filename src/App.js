@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useCallback } from 'react';
-// THIS IS THE FIX: Added BrowserRouter to the import list
 import { BrowserRouter, Routes, Route, Link, useLocation } from 'react-router-dom'; 
 import { AuthProvider, useAuth } from './AuthContext';
 
@@ -12,13 +11,14 @@ import AddIncidentForm from './components/AddIncidentForm';
 import GlobeView from './components/GlobeView';
 import CardGridView from './components/CardGridView';
 import DataTablePage from './components/DataTablePage';
+import PivotTableView from './components/PivotTableView'; // <-- Import the new component
 import LoginPage from './components/LoginPage';
 import ProtectedRoute from './components/ProtectedRoute';
 
 import { supabase } from './supabaseClient';
 import './App.css';
 
-// Import new icons
+// Import icons
 import sunIcon from './assets/icon-sun.png';
 import moonIcon from './assets/icon-moon.png';
 
@@ -27,7 +27,7 @@ function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [isNightMode, setIsNightMode] = useState(true);
   const location = useLocation();
-  const auth = useAuth(); // Access auth state for logout button
+  const auth = useAuth();
 
   const getIncidents = useCallback(async () => {
     setIsLoading(true);
@@ -50,6 +50,7 @@ function App() {
           <Link to="/globe">Globe</Link>
           <Link to="/grid">Grid</Link>
           <Link to="/table">Table</Link>
+          <Link to="/pivot">Pivot</Link> {/* <-- NEW Link */}
           <Link to="/dashboard">Dash</Link>
           <Link to="/admin">Admin</Link>
         </nav>
@@ -60,7 +61,6 @@ function App() {
               <img src={isNightMode ? sunIcon : moonIcon} alt="Toggle Day/Night" />
             </button>
           )}
-          {/* Show logout button if user is authenticated */}
           {auth.isAuthenticated && <button onClick={auth.logout} className="logout-button">Logout</button>}
         </div>
       </header>
@@ -71,9 +71,9 @@ function App() {
             <Route path="/globe" element={<GlobeView incidents={incidents} isNightMode={isNightMode} />} />
             <Route path="/grid" element={<CardGridView incidents={incidents} />} />
             <Route path="/table" element={<DataTablePage incidents={incidents} />} />
+            <Route path="/pivot" element={<PivotTableView incidents={incidents} />} /> {/* <-- NEW Route */}
             <Route path="/dashboard" element={<DashboardPage incidents={incidents} />} />
             <Route path="/login" element={<LoginPage />} />
-
             <Route path="/admin" element={<ProtectedRoute><AdminPage incidents={incidents} /></ProtectedRoute>} />
             <Route path="/admin/edit/:id" element={<ProtectedRoute><EditIncidentForm onSave={getIncidents} /></ProtectedRoute>} />
             <Route path="/admin/new" element={<ProtectedRoute><AddIncidentForm onSave={getIncidents} /></ProtectedRoute>} />
@@ -84,7 +84,7 @@ function App() {
   );
 }
 
-// We wrap the App in the router AND the auth provider
+// AppWrapper should remain the same
 function AppWrapper() {
   return (
     <BrowserRouter>

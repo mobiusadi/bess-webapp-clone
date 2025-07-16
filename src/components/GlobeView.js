@@ -1,26 +1,23 @@
-// src/components/GlobeView.js
 import React from 'react';
 import Globe from 'react-globe.gl';
 
-const day_texture = "//unpkg.com/three-globe/example/img/earth-day.jpg";
-const night_texture = "//unpkg.com/three-globe/example/img/earth-night.jpg";
-
-// The component now receives the isNightMode prop
-function GlobeView({ incidents, isNightMode }) {
+function GlobeView({ incidents }) {
   const globeData = incidents
     .filter(d => d.latitude && d.longitude)
     .map(incident => ({
       lat: incident.latitude,
       lng: incident.longitude,
       size: incident.capacity_mw ? 0.1 + Math.log(incident.capacity_mw + 1) / 10 : 0.1,
-      color: 'red',
+      color: '#dc3545', // Red points to stand out on the light globe
       name: incident.location,
     }));
 
   return (
     <div className="full-page-view">
       <Globe
-        globeImageUrl={isNightMode ? night_texture : day_texture}
+        // THIS IS THE FIX: Set the background to solid white
+        backgroundColor="rgba(255,255,255,1)"
+        globeImageUrl="//unpkg.com/three-globe/example/img/earth-day.jpg"
         pointsData={globeData}
         pointAltitude="size"
         pointColor="color"
@@ -31,3 +28,5 @@ function GlobeView({ incidents, isNightMode }) {
 }
 
 export default GlobeView;
+
+//this is just to push a commit
