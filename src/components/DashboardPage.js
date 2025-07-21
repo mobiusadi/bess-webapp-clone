@@ -1,12 +1,24 @@
 import React, { useState, useMemo, useEffect } from 'react';
-import { Bar, Doughnut, Radar } from 'react-chartjs-2';
-import ChartDataLabels from 'chartjs-plugin-datalabels';
+// THIS IS THE FIX: We only import the 'Bar' component that we are actually using.
+import { Bar } from 'react-chartjs-2';
 import {
-  Chart as ChartJS, ArcElement, CategoryScale, LinearScale, BarElement, RadialLinearScale, PointElement, LineElement, Filler, Title, Tooltip, Legend,
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Title,
+  Tooltip,
+  Legend,
 } from 'chart.js';
 
+// Register only the components needed for the Bar chart
 ChartJS.register(
-  ArcElement, CategoryScale, LinearScale, BarElement, RadialLinearScale, PointElement, LineElement, Filler, Title, Tooltip, Legend, ChartDataLabels
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Title,
+  Tooltip,
+  Legend
 );
 
 // Helper function to check for modern browser features
@@ -54,7 +66,6 @@ function DashboardPage({ incidents }) {
     setBrowserIsModern(isModernBrowser());
   }, []);
   
-  // State for the interactive charts
   const [barCategory, setBarCategory] = useState('country');
   const barChartData = useMemo(() => processData(incidents, barCategory), [incidents, barCategory]);
   const dataForBarChart = {
@@ -70,7 +81,6 @@ function DashboardPage({ incidents }) {
       plugins: { legend: { display: false } }
   };
 
-  // --- THIS IS THE FIX ---
   // If it's an old browser, render a simple fallback.
   if (!browserIsModern) {
     return (
@@ -90,7 +100,6 @@ function DashboardPage({ incidents }) {
         <div className="dashboard-controls">
           <label>Select Category:</label>
           <select value={barCategory} onChange={(e) => setBarCategory(e.target.value)}>
-            {/* You can add your full list of options here */}
             <option value="country">Country</option>
             <option value="year">Year</option>
             <option value="battery_modules">Battery</option>
@@ -100,7 +109,6 @@ function DashboardPage({ incidents }) {
           <Bar options={barChartOptions} data={dataForBarChart} />
         </div>
       </div>
-      {/* We can add back the Donut and Radar charts here once this part is confirmed working */}
     </div>
   );
 }
