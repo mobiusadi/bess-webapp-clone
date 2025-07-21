@@ -502,3 +502,47 @@
 .logout-button:hover {
   background-color: rgba(255,255,255,0.2);
 }
+
+/* === Legacy iOS Support Fixes === */
+
+/* Making the map view more robust for old flexbox implementations */
+.map-view-container {
+  display: -webkit-flex; /* Old Safari vendor prefix */
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+/* A common fix for flexbox sizing bugs in older browsers */
+.list-container, .map-container {
+  min-width: 0; 
+}
+
+/* Explicitly handle the mobile portrait layout */
+@media (max-width: 768px) and (orientation: portrait) {
+  .map-view-container {
+    -webkit-flex-direction: column;
+    flex-direction: column;
+  }
+  .list-container {
+    max-height: 50vh;
+    border-right: none;
+    border-bottom: 2px solid #ddd;
+  }
+  .map-container {
+    min-height: 50vh;
+  }
+}
+
+/* Explicitly handle the mobile landscape layout */
+@media (max-width: 900px) and (orientation: landscape) {
+  .map-view-container {
+    -webkit-flex-direction: row;
+    flex-direction: row;
+  }
+  .list-container {
+    max-height: 100%;
+    border-bottom: none;
+    border-right: 2px solid #ddd;
+  }
+}
